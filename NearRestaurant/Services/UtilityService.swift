@@ -8,25 +8,35 @@
 import Foundation
 
 
-struct CategoryError: Error {
-    var message: String
+enum CategoryError: Error {
+    case invalidUrl
+    case invalidDataStructure
 }
 
 struct UtilityService<T:Decodable> {
+    private var urlSession: URLSession
+    
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
+    }
+    
     func fetchData(apiEndpoint: String, completion: @escaping (Result<[T], CategoryError>) -> Void)  {
         guard let url = URL(string: apiEndpoint) else {
-            return completion(.failure(CategoryError(message: "URL is incorrect")))
+            //Write unit test for this case
+            return completion(.failure(.invalidUrl))
         }
-        URLSession.shared.dataTask(with: url) { data, res, error in
+        self.urlSession.dataTask(with: url) { data, res, error in
             guard let data, error == nil else {
-                return completion(.failure(CategoryError(message: "Could not get data")))
+                //Write unit test for this case
+                return completion(.failure(CategoryError.invalidDataStructure))
             }
             
             do {
                 let decodedData = try JSONDecoder().decode([T].self, from: data)
                 return completion(.success(decodedData))
             } catch {
-                return completion(.failure(CategoryError(message: "Could not decode data")))
+                //Write unit test for this case
+                return completion(.failure(CategoryError.invalidDataStructure))
             }
         }.resume()
     }

@@ -20,6 +20,7 @@ class RestaurantService {
     var categoryService = UtilityService<Category>()
     var restaurantService = UtilityService<Restaurant>()
     static let instance = RestaurantService()
+    
     private init(){
         print("Init single RestaurantService")
     }

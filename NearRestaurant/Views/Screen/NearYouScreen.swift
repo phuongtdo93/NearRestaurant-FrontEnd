@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AppCenterCrashes
 
 struct NearYouScreen: View {
     @StateObject private var restaurantListVM = RestaurantListViewModel()
@@ -29,8 +30,17 @@ struct NearYouScreen: View {
                 SmallRestaurantListNearYou()
                 CategoryList()
                 Spacer()
+                Button("Click to crash me") {
+                    Crashes.generateTestCrash()
+                }
             }.padding()
                 .environmentObject(restaurantListVM)
+            
+                .onAppear() {
+                    if Crashes.hasCrashedInLastSession {
+                        print ("Sorry an error occurs")
+                    }
+                }
         }
         
     }
