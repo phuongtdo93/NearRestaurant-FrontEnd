@@ -13,7 +13,7 @@ import AppCenterAnalytics
 @main
 struct NearRestaurantApp: App {
     init(){
-        AppCenter.start(withAppSecret: "0581a447-cccd-44e8-86ad-39cb85ef5ccc", services:[
+        AppCenter.start(withAppSecret: "2ef8e666-43f2-4c70-b1ed-6e0fcfdc148e", services:[
           Analytics.self,
           Crashes.self
         ])
