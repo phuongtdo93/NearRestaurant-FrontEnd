@@ -1,3 +1,4 @@
-Near Restaurant Information - Master
+Near Restaurant Information. The build status below:
 
-[![Build status](https://build.appcenter.ms/v0.1/apps/6fd5bba5-e48e-452b-9a03-47015d19c9d5/branches/main/badge)](https://appcenter.ms)
+
+[![Build status](https://build.appcenter.ms/v0.1/apps/ed399830-d8f5-435f-bfb8-293f788885ca/branches/dev/badge)](https://appcenter.ms)
