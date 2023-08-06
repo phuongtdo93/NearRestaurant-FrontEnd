@@ -24,22 +24,6 @@ struct CustomImage: View {
             .scaledToFill()
             .frame(width: width ?? .infinity, height: height ?? .infinity)
             .cornerRadius(10)
-        
-//        AsyncImage(url: URL(string: urlString)) { phase in
-//            switch phase {
-//            case .success(let image):
-//                image
-//                    .resizable()
-//                    .scaledToFill()
-//                    .frame(width: width ?? .infinity, height: height ?? .infinity)
-//                    .cornerRadius(10)
-//            @unknown default:
-//                Image(systemName: "photo.artframe")
-//                    .resizable()
-//                    .scaledToFill()
-//                    .frame(width: width ?? 130, height: height ?? 60)
-//            }
-//        }
     }
 }
 
