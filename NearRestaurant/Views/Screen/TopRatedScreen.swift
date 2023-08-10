@@ -19,6 +19,7 @@ struct TopRatedScreen: View {
                     Text("New York, USA")
                         .font(.callout)
                         .foregroundColor(.gray)
+                    
                 }
                 Spacer()
                 UserIcon()

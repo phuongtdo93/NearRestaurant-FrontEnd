@@ -51,6 +51,17 @@
                ReferencedContainer = "container:NearRestaurant.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1425CF9E2A85426A0063ED8D"
+               BuildableName = "NearRestaurantUnitTests.xctest"
+               BlueprintName = "NearRestaurantUnitTests"
+               ReferencedContainer = "container:NearRestaurant.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

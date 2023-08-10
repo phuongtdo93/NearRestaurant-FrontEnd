@@ -30,9 +30,6 @@ struct NearYouScreen: View {
                 SmallRestaurantListNearYou()
                 CategoryList()
                 Spacer()
-                Button("Click to crash me") {
-                    Crashes.generateTestCrash()
-                }
             }.padding()
                 .environmentObject(restaurantListVM)
             
