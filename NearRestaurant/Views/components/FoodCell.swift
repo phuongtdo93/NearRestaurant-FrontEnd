@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FoodCell: View {
+    @State private var isFavorite = true
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             ZStack (alignment: .top){
@@ -19,7 +21,7 @@ struct FoodCell: View {
                 HStack {
                     InfoTag(showStar: true, textStr: "4.0")
                     Spacer()
-                    LikeIcon(padding: 5)
+                    LikeIcon(padding: 5, isFavorite: $isFavorite)
                 }.padding(5)
             }
             Text("Vegan chikpar curr kacket potatose")

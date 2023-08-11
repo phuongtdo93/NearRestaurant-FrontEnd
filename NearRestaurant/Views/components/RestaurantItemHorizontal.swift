@@ -17,7 +17,7 @@ struct RestaurantItemHorizontal: View {
                 HStack {
                     InfoTag(showStar: true, textStr: restaurantVM.rate)
                     Spacer()
-                    LikeIcon(padding: 7)
+                    LikeIconRestaurant(padding: 7)
                 }.padding()
             }
             HStack(alignment: .top) {
