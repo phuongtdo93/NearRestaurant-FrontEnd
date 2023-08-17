@@ -10,7 +10,7 @@ target 'NearRestaurant' do
    pod 'AppCenter/Crashes'
    pod 'SDWebImageSwiftUI'
 
-  target 'NearRestaurantTests' do
+  target 'NearRestaurantUnitTests' do
     inherit! :search_paths
     # Pods for testing
   end

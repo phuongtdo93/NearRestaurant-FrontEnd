@@ -21,7 +21,7 @@ struct RestaurantItemVehicle: View {
                     HStack(alignment: .top) {
                         InfoTag(showStar: true, textStr: "3.4", showStroke: true)
                         Spacer()
-                        LikeIcon(showStroke: true, padding: 7)
+                        LikeIconRestaurant(showStroke: true, padding: 7)
                     }.padding(10)
                 }
                 Text(restaurantVM.name)

@@ -35,7 +35,7 @@ struct Banner: View {
                     InfoTag(textStr: "Parking")
                     InfoTag(textStr: "BAR")
                     Spacer()
-                    LikeIcon()
+                    LikeIconRestaurant()
                 }
                 }
             .padding(10)

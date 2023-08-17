@@ -1,0 +1,6 @@
+framework module Pods_NearRestaurantUnitTests {
+  umbrella header "Pods-NearRestaurantUnitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
