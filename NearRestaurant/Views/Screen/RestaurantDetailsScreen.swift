@@ -15,12 +15,23 @@ struct RestaurantDetailsScreen: View {
                     .font(.footnote)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 ContactInfo().padding(10)
-                Group {
-                    TableCell(title: "Menu")
-                    TableCell(title: "Reviews")
-                    TableCell(title: "Images")
-                }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                Spacer()
+                List {
+                    NavigationLink {
+                        MenuScreen()
+                    } label: {
+                        Text("Menu")
+                    }
+                    NavigationLink {
+                        
+                    } label: {
+                        Text("Reviews")
+                    }
+                    NavigationLink {
+                        
+                    } label: {
+                        Text("Images")
+                    }
+                }
             }
             .ignoresSafeArea()
             .toolbar {
