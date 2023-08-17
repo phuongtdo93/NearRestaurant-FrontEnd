@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_NearRestaurantTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_NearRestaurantTestsVersionString[];
+FOUNDATION_EXPORT double Pods_NearRestaurantUnitTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_NearRestaurantUnitTestsVersionString[];
 

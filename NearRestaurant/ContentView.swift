@@ -13,7 +13,12 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        NearYouScreen()
+//        NearYouScreen()
+        NavigationView {
+            NearYouScreen()
+            NearYouScreen()
+            NearYouScreen()
+        }
     }
 }
 
