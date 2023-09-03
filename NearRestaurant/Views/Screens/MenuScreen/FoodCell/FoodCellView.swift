@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoodCell: View {
+struct FoodCellView: View {
     @State private var isFavorite = true
     
     var body: some View {
@@ -52,6 +52,6 @@ struct FoodCell: View {
 
 struct FoodCell_Previews: PreviewProvider {
     static var previews: some View {
-        FoodCell()
+        FoodCellView()
     }
 }

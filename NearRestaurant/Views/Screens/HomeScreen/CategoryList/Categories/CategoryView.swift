@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct Categories: View {
+struct CategoryView: View {
     var text: String
     var body: some View {
         NavigationLink {
-            RestaurantList()
+            RestaurantListScreen()
         } label: {
             HStack {
                 Text(text).foregroundColor(.black)
@@ -35,6 +35,6 @@ struct Categories: View {
 
 struct Categories_Previews: PreviewProvider {
     static var previews: some View {
-        Categories(text: "Italian")
+        CategoryView(text: "Italian")
     }
 }

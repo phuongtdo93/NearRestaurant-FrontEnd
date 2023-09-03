@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrendingSquare: View {
+struct TrendingSquareView: View {
     var restaurant: RestaurantViewModel
     
     var body: some View {
@@ -41,6 +41,6 @@ struct TrendingSquare: View {
 
 struct TrendingSquare_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingSquare(restaurant: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short description for me restaurant", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage"))))
+        TrendingSquareView(restaurant: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short description for me restaurant", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage"))))
     }
 }

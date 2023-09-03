@@ -8,7 +8,7 @@
 import SwiftUI
 import AppCenterCrashes
 
-struct NearYouScreen: View {
+struct HomeScreen: View {
     @StateObject private var restaurantListVM = RestaurantListViewModel()
     
     var body: some View {
@@ -26,9 +26,9 @@ struct NearYouScreen: View {
                 }.padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                 
                 
-                TrendingList()
-                SmallRestaurantListNearYou()
-                CategoryList()
+                TrendingListView()
+                HorizontalRestaurantListView()
+                CategoryListView()
                 Spacer()
             }.padding()
                 .environmentObject(restaurantListVM)
@@ -43,8 +43,8 @@ struct NearYouScreen: View {
     }
 }
 
-struct NearYouScreen_Previews: PreviewProvider {
+struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        NearYouScreen().environmentObject(RestaurantListViewModel())
+        HomeScreen().environmentObject(RestaurantListViewModel())
     }
 }

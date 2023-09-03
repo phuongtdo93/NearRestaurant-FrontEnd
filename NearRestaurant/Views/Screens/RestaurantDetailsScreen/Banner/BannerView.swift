@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Banner: View {
+struct BannerView: View {
     var body: some View {
         ZStack (alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
             Image ("image1")
@@ -45,6 +45,6 @@ struct Banner: View {
 
 struct Banner_Previews: PreviewProvider {
     static var previews: some View {
-        Banner()
+        BannerView()
     }
 }

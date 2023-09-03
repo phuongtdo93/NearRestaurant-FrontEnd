@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LongButtonWithIcon: View {
+struct LongButtonWithIconView: View {
     var text: String
     var icon: String
     
@@ -35,6 +35,6 @@ struct LongButtonWithIcon: View {
 
 struct LongButtonWithIcon_Previews: PreviewProvider {
     static var previews: some View {
-        LongButtonWithIcon(text: "SORT BY", icon: "text.alignleft")
+        LongButtonWithIconView(text: "SORT BY", icon: "text.alignleft")
     }
 }

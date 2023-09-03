@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContactInfo: View {
+struct ContactInfoView: View {
     var body: some View {
         HStack {
             BigCircle(content: "calendar")
@@ -25,6 +25,6 @@ struct ContactInfo: View {
 
 struct ContactInfo_Previews: PreviewProvider {
     static var previews: some View {
-        ContactInfo()
+        ContactInfoView()
     }
 }

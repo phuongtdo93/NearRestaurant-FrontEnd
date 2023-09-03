@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct RestaurantList: View {
+struct RestaurantListScreen: View {
     @State private var selectedItem: String = ""
     private var optionList = ["List", "Map"]
     
     var body: some View {
         VStack {
-           BigRestaurantListNearYou()
+           VerticalRestaurantListView()
         }
         .toolbar {
             ToolbarItem(placement: .navigation)  {
@@ -35,6 +35,6 @@ struct RestaurantList: View {
 
 struct RestaurantList_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantList().environmentObject(RestaurantListViewModel())
+        RestaurantListScreen().environmentObject(RestaurantListViewModel())
     }
 }

@@ -10,11 +10,11 @@ import SwiftUI
 struct RestaurantDetailsScreen: View {
     var body: some View {
             VStack {
-                Banner()
+                BannerView()
                 Text("This budget-friendly meal plan covers a week's worth of dinners for four adults and two children, coming in at under £35 in total.")
                     .font(.footnote)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                ContactInfo().padding(10)
+                ContactInfoView().padding(10)
                 List {
                     NavigationLink {
                         MenuScreen()

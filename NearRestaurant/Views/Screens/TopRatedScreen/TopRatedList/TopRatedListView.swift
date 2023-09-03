@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopRatedList: View {
+struct TopRatedListView: View {
     @ObservedObject var topRatedListVM = TopRatedListViewModel()
     var body: some View {
         VStack {
@@ -16,17 +16,12 @@ struct TopRatedList: View {
                     .font(.title2)
                     .fontWeight(.bold)
                 Spacer()
-                Text("See all")
-                    .font(.headline)
-                    .foregroundColor(.red)
-                Image(systemName: "chevron.forward")
-                    .foregroundColor(.red)
             }
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             
             ScrollView {
                 ForEach(topRatedListVM.topRatedListVM, id: \.id) { restaurant in
-                    RestaurantItem(restaurantVM: restaurant)
+                    RestaurantItemView(restaurantVM: restaurant)
                 }
             }
         }
@@ -39,6 +34,6 @@ struct TopRatedList: View {
 
 struct TopRatedList_Previews: PreviewProvider {
     static var previews: some View {
-        TopRatedList()
+        TopRatedListView()
     }
 }

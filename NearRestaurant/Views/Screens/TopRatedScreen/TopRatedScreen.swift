@@ -25,8 +25,8 @@ struct TopRatedScreen: View {
                 UserIcon()
             }
             
-            TrendingSquare(restaurant: trendingRestaurant)
-            TopRatedList()
+            TrendingSquareView(restaurant: trendingRestaurant)
+            TopRatedListView()
             
             
         }.padding()

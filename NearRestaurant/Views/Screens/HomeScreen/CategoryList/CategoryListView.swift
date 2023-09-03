@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CategoryList: View {
+struct CategoryListView: View {
     let gridItem = [GridItem(.flexible()), GridItem(.flexible())]
     @ObservedObject var categoryListViewModel = CategoryListViewModel()
     
@@ -20,7 +20,7 @@ struct CategoryList: View {
             ScrollView(.vertical) {
                 LazyVGrid(columns: gridItem) {
                     ForEach(categoryListViewModel.categoryList, id:\.id) { item in
-                        Categories(text: item.name)
+                        CategoryView(text: item.name)
                     }
                 }
             }
@@ -31,6 +31,6 @@ struct CategoryList: View {
 
 struct CategoryList_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryList()
+        CategoryListView()
     }
 }

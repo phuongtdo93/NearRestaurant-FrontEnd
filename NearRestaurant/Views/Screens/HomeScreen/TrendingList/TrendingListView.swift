@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct TrendingList: View {
+struct TrendingListView: View {
     @ObservedObject var trendingListVM = TrendingListViewModel()
     
     var body: some View {
         ScrollView (.horizontal) {
             LazyHStack {
                 ForEach(trendingListVM.trendingList, id: \.id) { restaurant in
-                    TrendingRectangle(restaurantVM: restaurant)
+                    TrendingRectangleView(restaurantVM: restaurant)
                 }
             }.fixedSize()
         }
@@ -25,6 +25,6 @@ struct TrendingList: View {
 
 struct TrendingList_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingList()
+        TrendingListView()
     }
 }

@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct SmallRestaurantListNearYou: View {
+struct
+HorizontalRestaurantListView: View {
     @EnvironmentObject var restaurant: RestaurantListViewModel
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,7 +19,7 @@ struct SmallRestaurantListNearYou: View {
             ScrollView(.horizontal) {
                 LazyHStack() {
                     ForEach(restaurant.restaurantList, id: \.id) { restaurantItem in
-                        RestaurantItemVehicle(restaurantVM: restaurantItem)
+                        RestaurantItemVerticalView(restaurantVM: restaurantItem)
                     }
                 }.fixedSize()
             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
@@ -27,8 +28,8 @@ struct SmallRestaurantListNearYou: View {
     }
 }
 
-struct SmallRestaurantListNearYou_Previews: PreviewProvider {
+struct HorizontalRestaurantListView_Previews: PreviewProvider {
     static var previews: some View {
-        SmallRestaurantListNearYou().environmentObject(RestaurantListViewModel())
+        HorizontalRestaurantListView().environmentObject(RestaurantListViewModel())
     }
 }

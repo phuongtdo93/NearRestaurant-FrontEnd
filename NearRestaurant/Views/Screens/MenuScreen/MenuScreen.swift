@@ -22,7 +22,7 @@ struct MenuScreen: View {
                 ScrollView (.vertical){
                     LazyVGrid(columns: gridItems) {
                         ForEach(1...10, id: \.self) { _ in
-                            FoodCell()
+                            FoodCellView()
                         }
                     }
                 }
