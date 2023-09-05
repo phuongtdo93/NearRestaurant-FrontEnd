@@ -14,6 +14,7 @@ struct LikeIconRestaurant: View {
     var categoryId: String = ""
     var restaurantId: String = ""
     @State private var isFavorite: Bool = false
+//    private var likeIconRestaurantViewModel = LikeIconRestaurantViewModel()
     
     
     var body: some View {

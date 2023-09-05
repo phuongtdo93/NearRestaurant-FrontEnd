@@ -38,4 +38,5 @@ class RestaurantService {
     func fetchTop5Restaurant(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant, completion: completion)
     }
+//    func setFavouriteRestaurant()
 }

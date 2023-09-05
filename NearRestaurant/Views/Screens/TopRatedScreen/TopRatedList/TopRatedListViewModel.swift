@@ -9,13 +9,13 @@ import Foundation
 
 class TopRatedListViewModel: ObservableObject {
     @Published var topRatedListVM: [RestaurantViewModel] = []
-    let delayInSeconds = 3.0
+    let delayInSeconds = 0
     
     private var restaurantService = RestaurantService.instance
     
     func fetchTop5Restaurant() {
         restaurantService.fetchTop5Restaurant { result in
-            DispatchQueue.main.asyncAfter(deadline: .now() + self.delayInSeconds) {
+            DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
                     self.topRatedListVM = data.map(RestaurantViewModel.init)
