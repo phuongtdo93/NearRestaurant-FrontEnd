@@ -36,8 +36,8 @@ struct RestaurantDetailsScreen: View {
             .ignoresSafeArea()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        
+                    NavigationLink {
+                        SearchScreen()
                     } label: {
                         Text("BOOKING")
                             .foregroundColor(.white)

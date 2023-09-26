@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct RestaurantItemHorizontalView: View {
-    var restaurantVM: RestaurantViewModel
-    
+    var restaurantVM: RestaurantViewModel!
+    var setFavouriteProtocol: SetFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
+    @State var isFavourite: Bool = false
+
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
@@ -17,7 +19,10 @@ struct RestaurantItemHorizontalView: View {
                 HStack {
                     InfoTag(showStar: true, textStr: restaurantVM.rate)
                     Spacer()
-                    LikeIconRestaurant(padding: 7)
+                    LikeIcon(showStroke: true,
+                             padding: 10, isFavourite: $isFavourite,
+                             setFavouriteProtocol: setFavouriteProtocol,
+                             restaurantFavourite: RestaurantFavourite(categoryId: restaurantVM.categoryId, restaurantId: restaurantVM.id))
                 }.padding()
             }
             HStack(alignment: .top) {
@@ -32,11 +37,15 @@ struct RestaurantItemHorizontalView: View {
                 InfoTag(textStr: restaurantVM.distance, showStroke: true)
             }
         }
+        .onAppear(){
+            print("isFavourite: \(restaurantVM.isFavourite)")
+            isFavourite = restaurantVM.isFavourite
+        }
     }
 }
 
 struct RestaurantItemHorizontal_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantItemHorizontalView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage"))))
+        RestaurantItemHorizontalView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: true))))
     }
 }

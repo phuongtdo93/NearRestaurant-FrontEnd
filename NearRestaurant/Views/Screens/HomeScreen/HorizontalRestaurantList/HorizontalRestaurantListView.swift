@@ -17,12 +17,13 @@ HorizontalRestaurantListView: View {
             .fontWeight(.bold)
             
             ScrollView(.horizontal) {
-                LazyHStack() {
+                LazyHStack(spacing: 20) {
                     ForEach(restaurant.restaurantList, id: \.id) { restaurantItem in
                         RestaurantItemVerticalView(restaurantVM: restaurantItem)
                     }
                 }.fixedSize()
-            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+            }
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
         }
         
     }

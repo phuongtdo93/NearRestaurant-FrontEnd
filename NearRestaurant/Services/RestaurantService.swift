@@ -9,8 +9,8 @@ import Foundation
 
 enum NearRestaurantEndpoint {
     static var domain: String = "https://nearrestaurant.glitch.me"
-    static var getAllCategories: String = domain + "/categories"
-    static var getAllRestaurants: String = domain + "/restaurants"
+    static var categoriesEndpoint: String = domain + "/categories"
+    static var restaurantsEndpoint: String = domain + "/restaurants"
     static var getAllTrending: String = domain + "/restaurants?isTrending=true"
     static var getTop5Restaurant: String = domain + "/restaurants?numOfTop=5"
 }
@@ -26,11 +26,11 @@ class RestaurantService {
     }
     
     func fetchCategory(completion: @escaping (Result<[Category], CategoryError>) -> Void){
-        categoryService.fetchData(apiEndpoint: NearRestaurantEndpoint.getAllCategories, completion: completion)
+        categoryService.fetchData(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, completion: completion)
     }
     
     func fetchRestaurant(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
-        restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getAllRestaurants, completion: completion)
+        restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.restaurantsEndpoint, completion: completion)
     }
     func fetchAllTrending(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getAllTrending, completion: completion)
@@ -38,5 +38,7 @@ class RestaurantService {
     func fetchTop5Restaurant(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant, completion: completion)
     }
-//    func setFavouriteRestaurant()
+    func setFavouriteRestaurant( categoryId: String, restaurantId: String,isFavourite:  Bool, completion: @escaping(Result<Bool, CategoryError>) -> Void) {
+        restaurantService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, categoryId: categoryId, restaurantId: restaurantId, isFavourite: isFavourite, completion: completion)
+    }
 }

@@ -21,7 +21,7 @@ struct FoodCellView: View {
                 HStack {
                     InfoTag(showStar: true, textStr: "4.0")
                     Spacer()
-                    LikeIcon(padding: 5, isFavorite: $isFavorite)
+//                    LikeIcon(padding: 5, isFavorite: isFavorite)
                 }.padding(5)
             }
             Text("Vegan chikpar curr kacket potatose")

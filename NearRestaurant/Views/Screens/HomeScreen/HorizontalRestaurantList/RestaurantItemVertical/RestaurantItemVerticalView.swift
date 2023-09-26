@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RestaurantItemVerticalView: View {
     var restaurantVM: RestaurantViewModel
+    private let setFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
+    @State var isFavourite: Bool = true
     
     var body: some View {
         NavigationLink {
@@ -21,19 +23,26 @@ struct RestaurantItemVerticalView: View {
                     HStack(alignment: .top) {
                         InfoTag(showStar: true, textStr: "3.4", showStroke: true)
                         Spacer()
-                        LikeIconRestaurant(showStroke: true, padding: 7)
+                        LikeIcon(showStroke: false, padding: 10, isFavourite: $isFavourite, setFavouriteProtocol: setFavouriteProtocol, restaurantFavourite:   RestaurantFavourite(categoryId: restaurantVM.categoryId, restaurantId: restaurantVM.id))
                     }.padding(10)
                 }
                 Text(restaurantVM.name)
                     .font(.headline)
                     .foregroundColor(.black)
+                    .lineSpacing(4)
+                    .lineLimit(2)
+                    .padding(2)
                 Text(restaurantVM.address)
                     .font(.caption2)
                     .foregroundColor(.gray)
                 InfoTag(textStr: restaurantVM.distance, showStroke: true)
                 
             }
-            .fixedSize()
+            .frame(maxWidth: 150)
+            .fixedSize(horizontal: false, vertical: true)
+        }
+        .onAppear() {
+            isFavourite = restaurantVM.isFavourite
         }
 
         
@@ -44,7 +53,7 @@ struct RestaurantItemVehicle_Previews: PreviewProvider {
   
    let restaurantListVM = RestaurantListViewModel()
    static var previews: some View {
-       RestaurantItemVerticalView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage"))))
+       RestaurantItemVerticalView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name Lon an long Long and long", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: true))))
 
    }
 }

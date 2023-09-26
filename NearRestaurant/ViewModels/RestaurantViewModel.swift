@@ -10,7 +10,7 @@ import Foundation
 struct RestaurantViewModel: Identifiable {
     let restaurant: Restaurant
     
-    var categoryIs: String {
+    var categoryId: String {
         restaurant.categoryId
     }
     
@@ -49,5 +49,9 @@ struct RestaurantViewModel: Identifiable {
     }
     var image: String {
         restaurant.restaurantInfo.image
+    }
+    
+    var isFavourite: Bool {
+        restaurant.restaurantInfo.isFavourite ?? false
     }
 }

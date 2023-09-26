@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BannerView: View {
+    @State var isFavourite = true
+    private let setFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
+    
     var body: some View {
         ZStack (alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
             Image ("image1")
@@ -35,7 +38,7 @@ struct BannerView: View {
                     InfoTag(textStr: "Parking")
                     InfoTag(textStr: "BAR")
                     Spacer()
-                    LikeIconRestaurant()
+                    LikeIcon(showStroke: true, padding: 10, isFavourite: $isFavourite, setFavouriteProtocol: setFavouriteProtocol, restaurantFavourite: RestaurantFavourite(categoryId: "", restaurantId: ""))
                 }
                 }
             .padding(10)

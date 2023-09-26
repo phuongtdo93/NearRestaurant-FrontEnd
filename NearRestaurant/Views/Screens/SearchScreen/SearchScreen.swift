@@ -7,24 +7,25 @@
 
 import SwiftUI
 
+
 struct SearchScreen: View {
     @State private var selectedPersonNo: String = ""
     var body: some View {
-        NavigationView {
+        VStack{
+            SearchField()
             Picker("2 person", selection: $selectedPersonNo, content: {
                 ForEach(1...4, id: \.self) { _ in
                     Text("Chooos person")
                 }
             }).pickerStyle(.menu)
-                .navigationTitle("Search")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        BackButton()
-                    }
-                }
+            
+            Spacer()
+            .navigationTitle("Search")
+                
         }
     }
 }
+
 
 struct SearchScreen_Previews: PreviewProvider {
     static var previews: some View {

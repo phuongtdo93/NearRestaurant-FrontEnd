@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RestaurantItemView: View {
     var restaurantVM: RestaurantViewModel
+    @State var isFavourite: Bool = false
+    
+    private let setFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
     
     var body: some View {
         HStack (){
@@ -24,7 +27,7 @@ struct RestaurantItemView: View {
             }
             Spacer()
             VStack (spacing: 20) {
-                LikeIconRestaurant(showStroke: true, padding: 6)
+                LikeIcon(showStroke: true, padding: 10, isFavourite: $isFavourite, setFavouriteProtocol: setFavouriteProtocol, restaurantFavourite: RestaurantFavourite(categoryId: restaurantVM.categoryId, restaurantId: restaurantVM.id))
                 InfoTag(textStr: restaurantVM.distance, showStroke: true)
             }
         }
@@ -34,6 +37,6 @@ struct RestaurantItemView: View {
 
 struct RestaurantItem_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantItemView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage"))))
+        RestaurantItemView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: true))))
     }
 }

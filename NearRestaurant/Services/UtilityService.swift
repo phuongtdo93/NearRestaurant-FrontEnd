@@ -11,6 +11,7 @@ import Foundation
 enum CategoryError: Error {
     case invalidUrl
     case invalidDataStructure
+    case notAvailableData
 }
 
 struct UtilityService<T:Decodable> {
@@ -40,4 +41,29 @@ struct UtilityService<T:Decodable> {
             }
         }.resume()
     }
+    
+    func setFavouriteRestaurant(apiEndpoint: String, categoryId: String, restaurantId: String, isFavourite: Bool, completion: @escaping (Result<Bool, CategoryError>) -> Void) {
+        
+        let urlString = "\(apiEndpoint)/\(categoryId)/restaurants/\(restaurantId)?isFavourite=\(isFavourite)"
+        guard let url = URL(string: urlString) else {
+            return completion(.failure(.invalidUrl))
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "PATCH"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        self.urlSession.dataTask(with: urlRequest) { data, response, err in
+            guard let data, err == nil else {
+                return completion(.failure(.notAvailableData))
+            }
+            do {
+                let decodedData = try JSONDecoder().decode(RequestResponse.self, from: data)
+                return completion(.success(decodedData.success))
+            } catch {
+                return completion(.failure(.invalidDataStructure))
+            }
+        }.resume()
+    }
+    
 }

@@ -37,7 +37,7 @@ final class testRestaurantService: XCTestCase {
         let expectedResult = Category(id: "123", name: "Category")
         let expectation = self.expectation(description: "Fetch function return data")
         //Act
-        utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.getAllCategories) { result in
+        utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint) { result in
             //Assert
             switch result {
             case .success(let res):
@@ -82,7 +82,7 @@ final class testRestaurantService: XCTestCase {
         
         let expectation = self.expectation(description: "Fetch function return data")
         //Act
-        utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.getAllCategories) { result in
+        utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant) { result in
             //Assert
             switch result {
             case .success(let res):
@@ -95,5 +95,32 @@ final class testRestaurantService: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 5)
     }
+    
+    func testRestaurantService_isFavouriteRestaurant_ReturnTrue() {
+        //Arrange
+        let expectedResult = "{\"success\":true}"
+        MockUrlSession.responseData = expectedResult.data(using: .utf8)
+        
+        let utilityService = UtilityService<Restaurant>(urlSession: urlSession!)
+        
+        let expectation = self.expectation(description: "Set Favourite restaurant successfully")
+        //Act
+        utilityService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, categoryId: "64a0b33eec6e7df2d85d75f5", restaurantId: "64a0b33eec6e7df2d85d75f6", isFavourite: true) { result in
+            print(result)
+            
+            switch result {
+            case .success(let res):
+                print( res)
+                XCTAssertTrue(res)
+            case .failure(let err):
+                XCTAssertFalse(false)
+            }
+            expectation.fulfill()
+        }
+        
+        //Assert
+        self.wait(for: [expectation], timeout: 10)
+    }
+    func testRestaurantService_isNotFavouriteRestaurant_ReturnFalse(){}
 
 }

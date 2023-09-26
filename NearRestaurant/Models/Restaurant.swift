@@ -20,7 +20,7 @@ struct RestaurantInfo: Decodable {
     let timeOpen: String
     let dayOfWeek: String
     let image: String
-//    let isFavourite: Bool
+    let isFavourite: Bool?
 }
 
 struct Restaurant: Decodable {
