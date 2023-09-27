@@ -27,7 +27,7 @@ struct RestaurantDetailsScreen: View {
                         Text("Reviews")
                     }
                     NavigationLink {
-                        
+                        RestaurantImagesScreen(categoryId: "64a01af9372d0c7ce7802f5c", restaurantId: "64a01af9372d0c7ce7802f5c")
                     } label: {
                         Text("Images")
                     }

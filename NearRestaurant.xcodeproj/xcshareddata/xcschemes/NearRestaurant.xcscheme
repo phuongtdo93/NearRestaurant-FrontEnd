@@ -34,7 +34,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "145566092A61698200498E49"
+               BlueprintIdentifier = "14F428342A8DFB060064CCD0"
                BuildableName = "NearRestaurantTests.xctest"
                BlueprintName = "NearRestaurantTests"
                ReferencedContainer = "container:NearRestaurant.xcodeproj">
@@ -84,6 +84,18 @@
             ReferencedContainer = "container:NearRestaurant.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <AdditionalOptions>
+         <AdditionalOption
+            key = "MallocStackLogging"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
+         <AdditionalOption
+            key = "PrefersMallocStackLoggingLite"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
+      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

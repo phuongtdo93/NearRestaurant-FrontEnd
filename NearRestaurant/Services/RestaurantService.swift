@@ -13,13 +13,22 @@ enum NearRestaurantEndpoint {
     static var restaurantsEndpoint: String = domain + "/restaurants"
     static var getAllTrending: String = domain + "/restaurants?isTrending=true"
     static var getTop5Restaurant: String = domain + "/restaurants?numOfTop=5"
+    
+    static var getImagesByRestaurant: (String, String) -> String = { categoryId, restaurantId in
+        NearRestaurantEndpoint.domain + "/categories/\(categoryId)/restaurants/\(restaurantId)/images"
+    }
+    
+    
 }
 
 
 class RestaurantService {
+    typealias RestaurantImage = String
+    
     var categoryService = UtilityService<Category>()
     var restaurantService = UtilityService<Restaurant>()
     static let instance = RestaurantService()
+    var imageService = UtilityService<RestaurantImage>()
     
     private init(){
         print("Init single RestaurantService")
@@ -40,5 +49,10 @@ class RestaurantService {
     }
     func setFavouriteRestaurant( categoryId: String, restaurantId: String,isFavourite:  Bool, completion: @escaping(Result<Bool, CategoryError>) -> Void) {
         restaurantService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, categoryId: categoryId, restaurantId: restaurantId, isFavourite: isFavourite, completion: completion)
+    }
+    
+    func fetchRestaurantImages(categoryId: String, restaurantId: String, completion: @escaping (Result<[String], CategoryError>) -> Void ){
+        let url = NearRestaurantEndpoint.getImagesByRestaurant(categoryId, restaurantId)
+       return imageService.fetchData(apiEndpoint: url, completion: completion)
     }
 }
