@@ -38,7 +38,8 @@ struct RestaurantImagesScreen: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(restaurantImageVM.images, id: \.self) { item in
-                        Image(uiImage: item)
+//                        Image(uiImage: item)
+                        Image(systemName: "photo")
                     }
                 }
             }

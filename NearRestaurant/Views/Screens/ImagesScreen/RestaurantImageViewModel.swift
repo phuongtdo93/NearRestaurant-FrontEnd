@@ -19,7 +19,7 @@ class RestaurantImageViewModel: ObservableObject {
     
     var categoryId: String?
     var restaurantId: String?
-    @Published var isLoading = true
+    @Published var isLoading = false
     @Published var images: [UIImage] = []
     
     

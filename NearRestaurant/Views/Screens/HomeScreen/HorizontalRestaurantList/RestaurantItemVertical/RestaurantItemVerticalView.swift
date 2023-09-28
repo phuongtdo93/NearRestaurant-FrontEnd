@@ -14,7 +14,7 @@ struct RestaurantItemVerticalView: View {
     
     var body: some View {
         NavigationLink {
-            RestaurantDetailsScreen()
+            RestaurantDetailsScreen(restaurantVM: restaurantVM)
         } label: {
             VStack (alignment: .leading, spacing: 7) {
                 ZStack(alignment: .top) {

@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct RestaurantDetailsScreen: View {
+    var restaurantVM: RestaurantViewModel
+    
     var body: some View {
             VStack {
-                BannerView()
-                Text("This budget-friendly meal plan covers a week's worth of dinners for four adults and two children, coming in at under £35 in total.")
+                BannerView(isFavourite: restaurantVM.isFavourite, restaurantVM: restaurantVM)
+                Text(restaurantVM.longDescription)
                     .font(.footnote)
+                    .multilineTextAlignment(.leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                ContactInfoView().padding(10)
+                ContactInfoView(restaurantVM: restaurantVM).padding(10)
                 List {
                     NavigationLink {
                         MenuScreen()
@@ -55,6 +58,6 @@ struct RestaurantDetailsScreen: View {
 
 struct RestaurantDetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailsScreen()
+        RestaurantDetailsScreen(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: false))))
     }
 }
