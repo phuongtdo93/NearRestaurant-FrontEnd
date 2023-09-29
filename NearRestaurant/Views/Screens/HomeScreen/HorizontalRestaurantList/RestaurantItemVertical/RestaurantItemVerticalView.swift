@@ -42,7 +42,6 @@ struct RestaurantItemVerticalView: View {
             .fixedSize(horizontal: false, vertical: true)
         }
         .onAppear() {
-//            isFavourite = restaurantVM.isFavourite
             print(restaurantVM.name)
         }
 

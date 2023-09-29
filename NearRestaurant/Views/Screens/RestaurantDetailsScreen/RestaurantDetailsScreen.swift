@@ -25,7 +25,7 @@ struct RestaurantDetailsScreen: View {
                         Text("Menu")
                     }
                     NavigationLink {
-                        
+
                     } label: {
                         Text("Reviews")
                     }

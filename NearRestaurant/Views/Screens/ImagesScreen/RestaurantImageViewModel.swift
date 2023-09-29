@@ -30,7 +30,7 @@ class RestaurantImageViewModel: ObservableObject {
         restaurantService = RestaurantService.instance
         imageService = ImageService(session: URLSession(configuration: .default))
         handleLogging = HandleLogging.instance
-        fetchImages()
+        //fetchImages()
     }
     
     private func downloadImage(){
@@ -55,7 +55,7 @@ class RestaurantImageViewModel: ObservableObject {
         
     }
     
-    private func fetchImages() {
+    func fetchImages() {
         guard let categoryId, let restaurantId else { return }
         
         restaurantService?.fetchRestaurantImages(categoryId: categoryId, restaurantId: restaurantId, completion: { result in

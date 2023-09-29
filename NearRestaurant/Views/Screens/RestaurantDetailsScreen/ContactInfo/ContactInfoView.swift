@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContactInfoView: View {
     var restaurantVM: RestaurantViewModel
@@ -19,7 +20,12 @@ struct ContactInfoView: View {
                     .font(.custom("Arial", size: 14))
             }
             Spacer()
-            BigCircle(content: "location.fill")
+            NavigationLink {
+                MapScreen(longitude: 51.5, latitude: -0.12, name: "LonDon", mapRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
+            } label: {
+                BigCircle(content: "location.fill")
+            }
+
             BigCircle(content: "phone.fill")
         }
     }

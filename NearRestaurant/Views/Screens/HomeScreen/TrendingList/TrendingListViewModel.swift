@@ -6,24 +6,26 @@
 //
 
 import Foundation
+import OSLog
 
 class TrendingListViewModel: ObservableObject {
     @Published var trendingList: [RestaurantViewModel] = []
     private var restaurantService = RestaurantService.instance
+    
+    private var logging = HandleLogging.instance
     
     init(){
         fetchTrendingList()
     }
     
     func fetchTrendingList() {
-        print("fetchTrendingList")
          restaurantService.fetchAllTrending { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
                     self.trendingList = data.map(RestaurantViewModel.init)
                 case .failure(let err):
-                    print("Error in fetchTrendingList \(err)")
+                    self.logging.error("Error in fetchTrendingList \(err)")
                 }
             }
         }

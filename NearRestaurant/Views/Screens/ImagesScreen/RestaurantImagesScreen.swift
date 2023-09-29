@@ -30,19 +30,24 @@ struct RestaurantImagesScreen: View {
     ]
     
     var body: some View {
-        if restaurantImageVM.isLoading {
-            Image(systemName: "rays")
-                .resizable()
-                .frame(width: 50, height: 50)
-        } else {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(restaurantImageVM.images, id: \.self) { item in
-//                        Image(uiImage: item)
-                        Image(systemName: "photo")
+        VStack {
+            if restaurantImageVM.isLoading {
+                Image(systemName: "rays")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(restaurantImageVM.images, id: \.self) { item in
+                            //                        Image(uiImage: item)
+                            Image(systemName: "photo")
+                        }
                     }
                 }
             }
+        }
+        .onAppear() {
+            restaurantImageVM.fetchImages()
         }
     }
 }
