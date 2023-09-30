@@ -41,7 +41,7 @@ struct LikeIcon: View {
 
     var body: some View {
         Button {
-                performClick()
+            performClick()
         } label: {
             Image(systemName: "heart.fill")
                 .resizable()
@@ -55,9 +55,6 @@ struct LikeIcon: View {
                         .stroke(.gray, lineWidth: showStroke ?? false ? 1 : 0)
                 }
         }
-        .onAppear(){
-            print("isFavourite: \(isFavourite)")
-        }
     }
     
     func performClick() {
@@ -70,8 +67,6 @@ struct LikeIcon: View {
         Task {
 
             let response =  await setFavouriteProtocol.setFavourite(restaurant: restaurantFavourite)
-            print("Response: \(response)")
-            print("restaurantFavourite.isFavourite: \(restaurantFavourite.isFavourite)")
             if response && isFavourite == true {
                 isFavourite = true
             } else {

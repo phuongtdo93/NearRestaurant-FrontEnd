@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import OSLog
 
 class RestaurantListViewModel: ObservableObject {
     @Published var restaurantList: [RestaurantViewModel] = []
     private let restaurantService = RestaurantService.instance
+    private let handleLogging = HandleLogging.instance
     
     init(){
         restaurantService.fetchRestaurant { result in
@@ -19,7 +21,7 @@ class RestaurantListViewModel: ObservableObject {
                 case .success(let data):
                     self.restaurantList = data.map(RestaurantViewModel.init)
                 case .failure(let err):
-                    print("Error RestaurantListViewModel \(err)")
+                    self.handleLogging.error("Error RestaurantListViewModel \(err)")
                 }
             }
         }

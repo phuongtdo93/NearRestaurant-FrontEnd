@@ -19,10 +19,6 @@ struct RestaurantImagesScreen: View {
         self.restaurantImageVM = RestaurantImageViewModel(categoryId: categoryId, restaurantId: restaurantId)
     }
     
-    
-    let data = (1...100).map {
-        "Item \($0)"
-    }
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -39,7 +35,7 @@ struct RestaurantImagesScreen: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(restaurantImageVM.images, id: \.self) { item in
-                            //                        Image(uiImage: item)
+//                                Image(uiImage: item)
                             Image(systemName: "photo")
                         }
                     }

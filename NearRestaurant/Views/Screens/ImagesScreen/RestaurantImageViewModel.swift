@@ -30,27 +30,25 @@ class RestaurantImageViewModel: ObservableObject {
         restaurantService = RestaurantService.instance
         imageService = ImageService(session: URLSession(configuration: .default))
         handleLogging = HandleLogging.instance
-        //fetchImages()
     }
     
     private func downloadImage(){
         let downloadGroup = DispatchGroup()
         
-        print("imageURLs")
-        print(imageURLs)
-        
         for imageUrl in imageURLs {
             downloadGroup.enter()
-            let image = imageService?.fetchImage(url: imageUrl, completion: {
-                downloadGroup.leave()
+           imageService?.fetchImage(url: imageUrl, completion: { data in
+               downloadGroup.leave()
+               if let data , let photo = UIImage(data: data) {
+                   self.images.append(photo)
+               }
             })
-            if let image, let photo = UIImage(data: image) {
-                images.append(photo)
-            }
         }
         
         downloadGroup.notify(queue: DispatchQueue.main) {
             self.isLoading = false
+            print("imageURLs")
+            print(self.images)
         }
         
     }

@@ -16,8 +16,20 @@ struct ImageService {
         urlSession = session
     }
 
-    func fetchImage(url: String, completion: @escaping() -> Void) -> Data {
-        //Fetch images
-        return Data()
+    func fetchImage(url: String, completion: @escaping(Data?) -> Void) {
+        guard let urlFromString = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: urlFromString) { data, res, err in
+            DispatchQueue.main.async {
+                guard let data, err != nil else {
+                    completion(nil)
+                    return
+                }
+                completion(data)
+            }
+        }.resume()
     }
 }

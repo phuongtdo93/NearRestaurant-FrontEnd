@@ -41,11 +41,6 @@ struct RestaurantItemVerticalView: View {
             .frame(maxWidth: 150)
             .fixedSize(horizontal: false, vertical: true)
         }
-        .onAppear() {
-            print(restaurantVM.name)
-        }
-
-        
     }
 }
 
