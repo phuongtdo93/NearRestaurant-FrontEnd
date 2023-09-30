@@ -16,6 +16,7 @@ class RestaurantImageViewModel: ObservableObject {
     private let imageService: ImageService?
     private let handleLogging: Logger?
     private var imageURLs: [String] = []
+    let downloadGroup = DispatchGroup()
     
     var categoryId: String?
     var restaurantId: String?
@@ -33,12 +34,12 @@ class RestaurantImageViewModel: ObservableObject {
     }
     
     private func downloadImage(){
-        let downloadGroup = DispatchGroup()
+
         
         for imageUrl in imageURLs {
-            downloadGroup.enter()
+            self.downloadGroup.enter()
            imageService?.fetchImage(url: imageUrl, completion: { data in
-               downloadGroup.leave()
+               self.downloadGroup.leave()
                if let data , let photo = UIImage(data: data) {
                    self.images.append(photo)
                }

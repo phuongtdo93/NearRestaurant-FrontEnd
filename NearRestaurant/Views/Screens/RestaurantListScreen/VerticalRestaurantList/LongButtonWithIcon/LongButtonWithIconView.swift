@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LongButtonWithIconView: View {
-    var text: String
-    var icon: String
+    let text: String
+    let icon: String
     
     var body: some View {
         Button {

@@ -8,18 +8,18 @@
 import Foundation
 
 struct RestaurantInfo: Decodable {
-    let _id: String
-    let name: String
-    let address: String
-    let services: [String]
+    let _id: String?
+    let name: String?
+    let address: String?
+    let services: [String]?
 //    let dishes: [Dish]
-    let rate: Float
-    let distance: Float
-    let longDescription: String
-    let shortDescription: String
-    let timeOpen: String
-    let dayOfWeek: String
-    let image: String
+    let rate: Float?
+    let distance: Float?
+    let longDescription: String?
+    let shortDescription: String?
+    let timeOpen: String?
+    let dayOfWeek: String?
+    let image: String?
     let isFavourite: Bool?
 }
 

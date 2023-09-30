@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuScreen: View {
     @State private var choosedItem: String = ""
-    private var gridItems = [GridItem(.flexible()), GridItem(.flexible())]
+    private let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
             VStack {

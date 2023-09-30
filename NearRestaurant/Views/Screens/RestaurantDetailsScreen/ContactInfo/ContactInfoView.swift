@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct ContactInfoView: View {
-    var restaurantVM: RestaurantViewModel
+    let restaurantVM: RestaurantViewModel
     
     var body: some View {
         HStack {

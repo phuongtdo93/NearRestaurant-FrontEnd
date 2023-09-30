@@ -8,27 +8,26 @@
 import Foundation
 
 enum NearRestaurantEndpoint {
-    static var domain: String = "https://nearrestaurant.glitch.me"
-    static var categoriesEndpoint: String = domain + "/categories"
-    static var restaurantsEndpoint: String = domain + "/restaurants"
-    static var getAllTrending: String = domain + "/restaurants?isTrending=true"
-    static var getTop5Restaurant: String = domain + "/restaurants?numOfTop=5"
+    static let domain: String = "https://nearrestaurant.glitch.me"
+    static let categoriesEndpoint: String = domain + "/categories"
+    static let restaurantsEndpoint: String = domain + "/restaurants"
+    static let getAllTrending: String = domain + "/restaurants?isTrending=true"
+    static let getTop5Restaurant: String = domain + "/restaurants?numOfTop=5"
     
-    static var getImagesByRestaurant: (String, String) -> String = { categoryId, restaurantId in
+    static let getImagesByRestaurant: (String, String) -> String = { categoryId, restaurantId in
         NearRestaurantEndpoint.domain + "/categories/\(categoryId)/restaurants/\(restaurantId)/images"
     }
-    
-    
 }
 
-
-class RestaurantService {
+struct RestaurantService {
     typealias RestaurantImage = String
     
-    var categoryService = UtilityService<Category>()
-    var restaurantService = UtilityService<Restaurant>()
+    let categoryService = UtilityService<Category>()
+    let restaurantService = UtilityService<Restaurant>()
+    let imageService = UtilityService<RestaurantImage>()
+    
     static let instance = RestaurantService()
-    var imageService = UtilityService<RestaurantImage>()
+
     
     private init(){
         print("Init single RestaurantService")

@@ -10,7 +10,7 @@ import Foundation
 struct ImageService {
     let imageUrl: String = ""
     
-    var urlSession: URLSession?
+    let urlSession: URLSession?
     
     init(session: URLSession) {
         urlSession = session

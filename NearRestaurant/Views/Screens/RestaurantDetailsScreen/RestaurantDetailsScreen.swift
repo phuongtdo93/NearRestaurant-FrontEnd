@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RestaurantDetailsScreen: View {
-    var restaurantVM: RestaurantViewModel
+    let restaurantVM: RestaurantViewModel
     
     var body: some View {
             VStack {

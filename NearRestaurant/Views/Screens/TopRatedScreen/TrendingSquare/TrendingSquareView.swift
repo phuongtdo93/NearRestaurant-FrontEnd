@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrendingSquareView: View {
-    var restaurant: RestaurantViewModel
+    let restaurant: RestaurantViewModel
     
     var body: some View {
         ZStack(alignment: .leading) {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RestaurantListScreen: View {
     @State private var selectedItem: String = ""
-    private var optionList = ["List", "Map"]
+    private let optionList = ["List", "Map"]
     
     var body: some View {
         VStack {

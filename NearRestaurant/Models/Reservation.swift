@@ -8,9 +8,9 @@
 import Foundation
 
 struct Reservation {
-    let numberOfPeople: Int
-    let date: Date
-    let time: String
+    let numberOfPeople: Int?
+    let date: Date?
+    let time: String?
 }
 
 struct ReservationFormValidator {

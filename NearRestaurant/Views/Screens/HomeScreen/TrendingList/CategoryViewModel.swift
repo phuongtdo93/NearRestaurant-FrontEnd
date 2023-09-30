@@ -12,12 +12,12 @@ struct CategoryViewModel: Identifiable {
     
     
     var id: String {
-        category._id
+        category._id ?? ""
     }
     
 
     var name: String {
-        category.name
+        category.name ?? ""
     }
     
 }

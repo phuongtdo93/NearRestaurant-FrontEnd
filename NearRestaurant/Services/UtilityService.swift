@@ -15,7 +15,7 @@ enum CategoryError: Error {
 }
 
 struct UtilityService<T:Decodable> {
-    private var urlSession: URLSession
+    private let urlSession: URLSession
     
     init(urlSession: URLSession = .shared) {
         self.urlSession = urlSession
@@ -59,7 +59,7 @@ struct UtilityService<T:Decodable> {
             }
             do {
                 let decodedData = try JSONDecoder().decode(RequestResponse.self, from: data)
-                return completion(.success(decodedData.success))
+                return completion(.success(decodedData.success ?? false))
             } catch {
                 return completion(.failure(.invalidDataStructure))
             }

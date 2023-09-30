@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomPicker: View {
-    var optionList: [String] = ["2 person", "3 person"]
+    let optionList: [String] = ["2 person", "3 person"]
     @State var selectedOption: String = ""
     
     var body: some View {

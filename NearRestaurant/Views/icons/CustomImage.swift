@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CustomImage: View {
-    var urlString: String
+    let urlString: String
     var width: CGFloat?
     var height: CGFloat?
     

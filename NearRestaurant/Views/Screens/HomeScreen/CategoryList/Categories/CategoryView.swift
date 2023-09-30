@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
-    var text: String
+    let text: String
     var body: some View {
         NavigationLink {
             RestaurantListScreen()

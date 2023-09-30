@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopRatedScreen: View {
-    var trendingRestaurant: RestaurantViewModel
+    let trendingRestaurant: RestaurantViewModel
     var body: some View {
         VStack {
             HStack {

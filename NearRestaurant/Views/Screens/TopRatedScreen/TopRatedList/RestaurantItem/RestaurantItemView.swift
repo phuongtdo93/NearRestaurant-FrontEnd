@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RestaurantItemView: View {
-    var restaurantVM: RestaurantViewModel
+    let restaurantVM: RestaurantViewModel
     @State var isFavourite: Bool = false
     
     private let setFavouriteProtocol = SetRestaurantFavouriteProtocolImp()

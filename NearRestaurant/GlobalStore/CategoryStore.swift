@@ -9,7 +9,7 @@ import Foundation
 
 class CategoryStore: ObservableObject {
     @Published var catetoryList: [Category] = [Category]()
-    var categoryService = RestaurantService.instance
+    let categoryService = RestaurantService.instance
     
     init() {
         categoryService.fetchCategory { result in

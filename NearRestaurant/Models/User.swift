@@ -8,5 +8,5 @@
 import Foundation
 
 struct User: Decodable {
-    let deviceID: String
+    let deviceID: String?
 }

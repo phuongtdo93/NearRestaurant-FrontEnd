@@ -8,5 +8,5 @@
 import Foundation
 
 struct RequestResponse: Decodable {
-    let success: Bool
+    let success: Bool?
 }

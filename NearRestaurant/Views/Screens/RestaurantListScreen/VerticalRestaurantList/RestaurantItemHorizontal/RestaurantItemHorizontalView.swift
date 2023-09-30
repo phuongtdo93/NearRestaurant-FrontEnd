@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct RestaurantItemHorizontalView: View {
-    var restaurantVM: RestaurantViewModel!
-    var setFavouriteProtocol: SetFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
+    let restaurantVM: RestaurantViewModel!
+    let setFavouriteProtocol: SetFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
     @State var isFavourite: Bool = false
 
     var body: some View {

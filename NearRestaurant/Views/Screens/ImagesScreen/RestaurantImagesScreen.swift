@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RestaurantImagesScreen: View {
     
-    var categoryId: String
-    var restaurantId: String
+    let categoryId: String
+    let restaurantId: String
     @ObservedObject private var restaurantImageVM:  RestaurantImageViewModel
     
     init(categoryId: String, restaurantId: String) {

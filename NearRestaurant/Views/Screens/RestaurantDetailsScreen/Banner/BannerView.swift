@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BannerView: View {
     @State var isFavourite = true
-    var restaurantVM: RestaurantViewModel
+    let restaurantVM: RestaurantViewModel
     private let setFavouriteProtocol = SetRestaurantFavouriteProtocolImp()
     
     var body: some View {

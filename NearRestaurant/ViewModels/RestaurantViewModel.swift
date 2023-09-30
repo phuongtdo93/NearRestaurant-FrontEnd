@@ -15,40 +15,41 @@ struct RestaurantViewModel: Identifiable {
     }
     
     var id: String {
-        restaurant.restaurantInfo._id
+        restaurant.restaurantInfo._id ?? ""
     }
     var name: String {
-        restaurant.restaurantInfo.name
+        restaurant.restaurantInfo.name ?? ""
     }
     var address: String {
-        restaurant.restaurantInfo.address
+        restaurant.restaurantInfo.address ?? ""
     }
     var services: [String] {
-        restaurant.restaurantInfo.services
+        restaurant.restaurantInfo.services ?? []
     }
     var rate: String {
-        String(format: "%.1f", restaurant.restaurantInfo.rate)
+        String(format: "%.1f", restaurant.restaurantInfo.rate ?? 0.0)
     }
     var distance: String {
-        String(format: "%.2f", restaurant.restaurantInfo.distance) + " km"
+        String(format: "%.2f", restaurant.restaurantInfo.distance ?? 0.0) + " km"
     }
     var longDescription: String {
-        restaurant.restaurantInfo.longDescription
+        restaurant.restaurantInfo.longDescription ?? ""
     }
     var shortDescription: String {
-        restaurant.restaurantInfo.shortDescription
+        restaurant.restaurantInfo.shortDescription ?? ""
     }
     var shortDescriptionCut: String {
-        String(restaurant.restaurantInfo.shortDescription.prefix(20))
+        let des = restaurant.restaurantInfo.shortDescription ?? ""
+        return String(des.prefix(20))
     }
     var timeOpen: String {
-        restaurant.restaurantInfo.timeOpen
+        restaurant.restaurantInfo.timeOpen ?? ""
     }
     var dayOfWeek: String {
-        restaurant.restaurantInfo.dayOfWeek
+        restaurant.restaurantInfo.dayOfWeek ?? ""
     }
     var image: String {
-        restaurant.restaurantInfo.image
+        restaurant.restaurantInfo.image ?? ""
     }
     
     var isFavourite: Bool {
