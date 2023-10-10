@@ -29,6 +29,6 @@ struct VerticalRestaurantListView: View {
 
 struct BigRestaurantListNearYou_Previews: PreviewProvider {
     static var previews: some View {
-        VerticalRestaurantListView().environmentObject(RestaurantListViewModel())
+        VerticalRestaurantListView().environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
     }
 }

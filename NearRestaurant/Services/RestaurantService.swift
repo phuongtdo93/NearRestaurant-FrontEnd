@@ -7,19 +7,7 @@
 
 import Foundation
 
-enum NearRestaurantEndpoint {
-    static let domain: String = "https://nearrestaurant.glitch.me"
-    static let categoriesEndpoint: String = domain + "/categories"
-    static let restaurantsEndpoint: String = domain + "/restaurants"
-    static let getAllTrending: String = domain + "/restaurants?isTrending=true"
-    static let getTop5Restaurant: String = domain + "/restaurants?numOfTop=5"
-    
-    static let getImagesByRestaurant: (String, String) -> String = { categoryId, restaurantId in
-        NearRestaurantEndpoint.domain + "/categories/\(categoryId)/restaurants/\(restaurantId)/images"
-    }
-}
-
-struct RestaurantService {
+struct RestaurantService: RestaurantServiceProtocol {
     typealias RestaurantImage = String
     
     let categoryService = UtilityService<Category>()
@@ -47,7 +35,7 @@ struct RestaurantService {
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant, completion: completion)
     }
     func setFavouriteRestaurant( categoryId: String, restaurantId: String,isFavourite:  Bool, completion: @escaping(Result<Bool, CategoryError>) -> Void) {
-        restaurantService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, categoryId: categoryId, restaurantId: restaurantId, isFavourite: isFavourite, completion: completion)
+        restaurantService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite(categoryId, restaurantId, isFavourite), completion: completion)
     }
     
     func fetchRestaurantImages(categoryId: String, restaurantId: String, completion: @escaping (Result<[String], CategoryError>) -> Void ){

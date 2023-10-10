@@ -11,7 +11,11 @@ class TopRatedListViewModel: ObservableObject {
     @Published var topRatedListVM: [RestaurantViewModel] = []
     let delayInSeconds = 0
     
-    private var restaurantService = RestaurantService.instance
+    private var restaurantService: RestaurantServiceProtocol
+    
+    init(restaurantService: RestaurantServiceProtocol) {
+        self.restaurantService = restaurantService
+    }
     
     func fetchTop5Restaurant() {
         restaurantService.fetchTop5Restaurant { result in

@@ -9,9 +9,14 @@ import Foundation
 
 class CategoryListViewModel: ObservableObject {
     @Published var categoryList = [CategoryViewModel]()
-    private let restaurantService = RestaurantService.instance
+    private let restaurantService: RestaurantServiceProtocol
     
-    init(){
+    init(restaurantService: RestaurantServiceProtocol) {
+        self.restaurantService = restaurantService
+        fetchCategory()
+    }
+    
+    func fetchCategory () {
         restaurantService.fetchCategory { result in
             DispatchQueue.main.async {
                 switch result {

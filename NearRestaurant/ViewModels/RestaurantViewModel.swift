@@ -9,6 +9,22 @@ import Foundation
 
 struct RestaurantViewModel: Identifiable {
     let restaurant: Restaurant
+    var contactInformation: ContactViewModel {
+        
+        let timeOpen = restaurant.restaurantInfo.timeOpen ?? ""
+        let dayOfWeek = restaurant.restaurantInfo.dayOfWeek ?? ""
+        let locationName = restaurant.restaurantInfo.name ?? ""
+//        let phoneNumber = restaurant.restaurantInfo.phoneNumber ?? ""
+//        let longitude = restaurant.restaurantInfo.dayOfWeek ?? ""
+//        let latitude = restaurant.restaurantInfo.dayOfWeek ?? ""
+        
+        
+        return ContactViewModel(timeOpen: timeOpen, dayOfWeek: dayOfWeek, phoneNumber: "")
+    }
+    
+    var location: Location {
+        Location(name: restaurant.restaurantInfo.name, latitude: restaurant.restaurantInfo.latitude , longitude: restaurant.restaurantInfo.longitude, fullAddress: restaurant.restaurantInfo.address ?? "")
+    }
     
     var categoryId: String {
         restaurant.categoryId
@@ -42,12 +58,7 @@ struct RestaurantViewModel: Identifiable {
         let des = restaurant.restaurantInfo.shortDescription ?? ""
         return String(des.prefix(20))
     }
-    var timeOpen: String {
-        restaurant.restaurantInfo.timeOpen ?? ""
-    }
-    var dayOfWeek: String {
-        restaurant.restaurantInfo.dayOfWeek ?? ""
-    }
+
     var image: String {
         restaurant.restaurantInfo.image ?? ""
     }

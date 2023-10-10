@@ -10,11 +10,11 @@ import OSLog
 
 struct SetRestaurantFavouriteProtocolImp: SetFavouriteProtocol {
     
-    private var restaurantService: RestaurantService?
+    private var restaurantService: RestaurantServiceProtocol?
     private var handleLogging: Logger?
     
-    init(){
-        restaurantService = RestaurantService.instance
+    init(restaurantService: RestaurantServiceProtocol){
+        self.restaurantService = restaurantService
         handleLogging = HandleLogging.instance
     }
     

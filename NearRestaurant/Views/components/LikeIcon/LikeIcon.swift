@@ -79,7 +79,7 @@ struct LikeIcon: View {
 struct LikeIcon_Previews: PreviewProvider {
     static let restaurant = RestaurantFavourite(categoryId: "64a0b33eec6e7df2d85d75f5", restaurantId: "64a0b33eec6e7df2d85d75f6")
     
-    static let likeIconRestaurantVM = SetRestaurantFavouriteProtocolImp()
+    static let likeIconRestaurantVM = SetRestaurantFavouriteProtocolImp(restaurantService: RestaurantService.instance)
     
     static var previews: some View {
         LikeIcon(isFavourite: .constant(true), setFavouriteProtocol: LikeIcon_Previews.likeIconRestaurantVM, restaurantFavourite: LikeIcon_Previews.restaurant)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryListView: View {
     let gridItem = [GridItem(.flexible()), GridItem(.flexible())]
-    @ObservedObject var categoryListViewModel = CategoryListViewModel()
+    @ObservedObject var categoryListViewModel = CategoryListViewModel(restaurantService: RestaurantService.instance)
     
     var body: some View {
         VStack(alignment: .leading) {

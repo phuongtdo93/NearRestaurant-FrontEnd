@@ -19,7 +19,7 @@ HorizontalRestaurantListView: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 20) {
                     ForEach(restaurant.restaurantList, id: \.id) { restaurantItem in
-                        RestaurantItemVerticalView(restaurantVM: restaurantItem, isFavourite: restaurantItem.isFavourite)
+                        RestaurantItemVerticalView(isFavourite: restaurantItem.isFavourite, restaurantVM: restaurantItem)
                     }
                 }.fixedSize()
             }
@@ -31,6 +31,6 @@ HorizontalRestaurantListView: View {
 
 struct HorizontalRestaurantListView_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalRestaurantListView().environmentObject(RestaurantListViewModel())
+        HorizontalRestaurantListView().environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
     }
 }

@@ -21,6 +21,8 @@ struct RestaurantInfo: Decodable {
     let dayOfWeek: String?
     let image: String?
     let isFavourite: Bool?
+    let latitude: Double?
+    let longitude: Double?
 }
 
 struct Restaurant: Decodable {

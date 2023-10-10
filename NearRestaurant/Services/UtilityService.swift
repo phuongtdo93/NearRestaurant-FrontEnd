@@ -1,7 +1,4 @@
 //
-//  RestaurantService.swift
-//  NearRestaurant
-//
 //  Created by Salmdo on 7/1/23.
 //
 
@@ -42,10 +39,9 @@ struct UtilityService<T:Decodable> {
         }.resume()
     }
     
-    func setFavouriteRestaurant(apiEndpoint: String, categoryId: String, restaurantId: String, isFavourite: Bool, completion: @escaping (Result<Bool, CategoryError>) -> Void) {
+    func setFavouriteRestaurant(apiEndpoint: String, completion: @escaping (Result<Bool, CategoryError>) -> Void) {
         
-        let urlString = "\(apiEndpoint)/\(categoryId)/restaurants/\(restaurantId)?isFavourite=\(isFavourite)"
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: apiEndpoint) else {
             return completion(.failure(.invalidUrl))
         }
         

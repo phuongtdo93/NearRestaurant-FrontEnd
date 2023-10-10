@@ -10,10 +10,12 @@ import OSLog
 
 class RestaurantListViewModel: ObservableObject {
     @Published var restaurantList: [RestaurantViewModel] = []
-    private let restaurantService = RestaurantService.instance
+    private let restaurantService: RestaurantServiceProtocol
     private let handleLogging = HandleLogging.instance
     
-    init(){
+    init(restaurantService: RestaurantServiceProtocol){
+        self.restaurantService = restaurantService
+        
         restaurantService.fetchRestaurant { result in
             DispatchQueue.main.async {
                 print(result)

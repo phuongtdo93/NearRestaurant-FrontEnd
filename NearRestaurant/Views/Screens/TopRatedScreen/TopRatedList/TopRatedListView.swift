@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopRatedListView: View {
-    @ObservedObject var topRatedListVM = TopRatedListViewModel()
+    @ObservedObject var topRatedListVM = TopRatedListViewModel(restaurantService: RestaurantService.instance)
     var body: some View {
         VStack {
             HStack {

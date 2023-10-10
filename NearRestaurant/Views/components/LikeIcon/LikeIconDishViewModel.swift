@@ -11,12 +11,12 @@ import OSLog
 
 struct LikeIconDishViewModel: SetFavouriteProtocol {
     
-    private var restaurantService: RestaurantService?
+    private var restaurantService: RestaurantServiceProtocol?
     private var handleLogging: Logger?
     
-    init(){
-        restaurantService = RestaurantService.instance
-        handleLogging = HandleLogging.instance
+    init(restaurantService: RestaurantServiceProtocol) {
+        self.restaurantService = restaurantService
+        self.handleLogging = HandleLogging.instance
     }
     
     

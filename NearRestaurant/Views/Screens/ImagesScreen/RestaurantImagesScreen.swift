@@ -16,7 +16,7 @@ struct RestaurantImagesScreen: View {
     init(categoryId: String, restaurantId: String) {
         self.categoryId = categoryId
         self.restaurantId = restaurantId
-        self.restaurantImageVM = RestaurantImageViewModel(categoryId: categoryId, restaurantId: restaurantId)
+        self.restaurantImageVM = RestaurantImageViewModel(categoryId: categoryId, restaurantId: restaurantId, restaurantService: RestaurantService.instance)
     }
     
     let columns = [

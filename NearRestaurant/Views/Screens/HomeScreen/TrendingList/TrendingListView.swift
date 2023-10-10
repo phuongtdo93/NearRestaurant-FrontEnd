@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrendingListView: View {
-    @ObservedObject var trendingListVM = TrendingListViewModel()
+    @ObservedObject var trendingListVM = TrendingListViewModel(restaurantService: RestaurantService.instance)
     
     var body: some View {
         ScrollView (.horizontal) {

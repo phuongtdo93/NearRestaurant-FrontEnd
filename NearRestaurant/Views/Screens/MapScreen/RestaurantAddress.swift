@@ -6,14 +6,23 @@
 //
 
 import MapKit
-class RestaurantLocation: NSObject, Identifiable
+class Location: NSObject, Identifiable
 {
     let id = UUID()
     let name: String?
-    let coordinate: CLLocationCoordinate2D
+    let longitude: Double?
+    let latitude: Double?
+    let fullAddress: String?
     
-    init(name: String?, coordinate:  CLLocationCoordinate2D) {
+    var coordinate: CLLocationCoordinate2D? {
+        guard let latitude, let longitude else { return nil }
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    init(name: String?, latitude: Double?, longitude: Double?, fullAddress: String) {
         self.name = name
-        self.coordinate = coordinate
+        self.latitude = latitude
+        self.longitude = longitude
+        self.fullAddress = fullAddress
     }
 }

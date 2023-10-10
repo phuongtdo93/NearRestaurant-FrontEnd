@@ -35,6 +35,6 @@ struct RestaurantListScreen: View {
 
 struct RestaurantList_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantListScreen().environmentObject(RestaurantListViewModel())
+        RestaurantListScreen().environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
     }
 }

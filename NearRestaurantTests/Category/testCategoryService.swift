@@ -75,8 +75,9 @@ final class testRestaurantService: XCTestCase {
     }
     func testRestaurantService_invalidDataStructureReturned_ReturnFailure() {
         //Arrange
-        let expectedResultStr = "[{\"id\":\"123\",\"name\":\"Category\"}]"
+        let expectedResultStr = "[{\"id\":\"123\",\"na\":\"Category\"}]"
         MockUrlSession.responseData = expectedResultStr.data(using: .utf8)
+        MockUrlSession.responseError = CategoryError.invalidDataStructure
         
         let utilityService = UtilityService<NearRestaurant.Category>(urlSession: urlSession!)
         
@@ -105,7 +106,7 @@ final class testRestaurantService: XCTestCase {
         
         let expectation = self.expectation(description: "Set Favourite restaurant successfully")
         //Act
-        utilityService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, categoryId: "64a0b33eec6e7df2d85d75f5", restaurantId: "64a0b33eec6e7df2d85d75f6", isFavourite: true) { result in
+        utilityService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", true)) { result in
             print(result)
             
             switch result {

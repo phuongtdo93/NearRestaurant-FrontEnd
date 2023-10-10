@@ -10,11 +10,12 @@ import OSLog
 
 class TrendingListViewModel: ObservableObject {
     @Published var trendingList: [RestaurantViewModel] = []
-    private let restaurantService = RestaurantService.instance
+    private let restaurantService: RestaurantServiceProtocol
     
     private let logging = HandleLogging.instance
     
-    init(){
+    init(restaurantService: RestaurantServiceProtocol) {
+        self.restaurantService = restaurantService
         fetchTrendingList()
     }
     

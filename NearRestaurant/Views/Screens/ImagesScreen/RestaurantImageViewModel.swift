@@ -12,7 +12,7 @@ import SwiftUI
 class RestaurantImageViewModel: ObservableObject {
     
     private let label = "com.salmdo.nearRestaurant.images"
-    private let restaurantService: RestaurantService?
+    private let restaurantService: RestaurantServiceProtocol?
     private let imageService: ImageService?
     private let handleLogging: Logger?
     private var imageURLs: [String] = []
@@ -25,10 +25,10 @@ class RestaurantImageViewModel: ObservableObject {
     
     
     
-    init(categoryId: String, restaurantId: String){
+    init(categoryId: String, restaurantId: String, restaurantService: RestaurantServiceProtocol){
         self.categoryId = categoryId
         self.restaurantId = restaurantId
-        restaurantService = RestaurantService.instance
+        self.restaurantService = restaurantService
         imageService = ImageService(session: URLSession(configuration: .default))
         handleLogging = HandleLogging.instance
     }
