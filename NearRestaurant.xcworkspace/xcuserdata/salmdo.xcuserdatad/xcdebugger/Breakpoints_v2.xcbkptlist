@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "15D1F9FE-6862-427D-AA0E-A25F295DBEDE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NearRestaurant/Services/UtilityService.swift"
@@ -111,6 +111,36 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
                   endingLineNumber = "25"
+                  offsetFromSymbolStart = "728">
+               </Location>
+               <Location
+                  uuid = "15D1F9FE-6862-427D-AA0E-A25F295DBEDE - 418edd9a18f8a4e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearRestaurant.UtilityService.fetchData(apiEndpoint: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, NearRestaurant.CategoryError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/UtilityService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "15D1F9FE-6862-427D-AA0E-A25F295DBEDE - 418edd9a18f8a4e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearRestaurant.UtilityService.fetchData(apiEndpoint: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;&#x3c4;_0_0&gt;, NearRestaurant.CategoryError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/UtilityService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
                   offsetFromSymbolStart = "728">
                </Location>
             </Locations>

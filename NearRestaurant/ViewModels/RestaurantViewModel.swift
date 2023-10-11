@@ -7,6 +7,15 @@
 
 import Foundation
 
+class RestaurantWrappedViewModel: ObservableObject {
+    var id = UUID()
+    @Published var restaurant: RestaurantViewModel
+    
+    init(restaurant: RestaurantViewModel) {
+        self.restaurant = restaurant
+    }
+}
+
 struct RestaurantViewModel: Identifiable {
     let restaurant: Restaurant
     var contactInformation: ContactViewModel {

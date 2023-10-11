@@ -8,29 +8,29 @@
 import SwiftUI
 
 struct TrendingRectangleView: View {
-    var restaurantVM: RestaurantViewModel
+   @ObservedObject var restaurantVM: RestaurantWrappedViewModel
     
     var body: some View {
         ZStack {
-            CustomImage(urlString: restaurantVM.image, width: 300, height: 160)
+            CustomImage(urlString: restaurantVM.restaurant.image, width: 300, height: 160)
             VStack (alignment: .leading, spacing: 5){
                 Text("TRENDING")
                     .foregroundColor(.white)
                     .font(.caption2)
                     .fontWeight(.bold)
                 Spacer()
-                Text(restaurantVM.name)
+                Text(restaurantVM.restaurant.name)
                     .foregroundColor(.white)
                     .font(.title3)
                     .fontWeight(.bold)
                 HStack(alignment: .bottom) {
-                    Text(restaurantVM.shortDescriptionCut)
+                    Text(restaurantVM.restaurant.shortDescriptionCut)
                         .font(.caption)
                         .foregroundColor(.white)
                         .frame(width: 150, height: .infinity)
                     Spacer()
                     NavigationLink {
-                        TopRatedScreen(trendingRestaurant: restaurantVM)
+                        TopRatedScreen()
                     } label: {
                         Text("SEE ALL")
                             .font(.subheadline)
@@ -41,15 +41,18 @@ struct TrendingRectangleView: View {
                     }
 
                 }
+                
             }.padding(10)
             
         }
         .fixedSize()
+        .environmentObject(restaurantVM)
+        
     }
 }
 
 struct TrendingRectangle_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingRectangleView(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: true, latitude: 51.5, longitude: -0.15))))
+        TrendingRectangleView(restaurantVM: RestaurantWrappedViewModel(restaurant:  RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: true, latitude: 51.5, longitude: -0.15)))))
     }
 }

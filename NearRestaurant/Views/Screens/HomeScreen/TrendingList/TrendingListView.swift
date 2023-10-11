@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TrendingListView: View {
-    @ObservedObject var trendingListVM = TrendingListViewModel(restaurantService: RestaurantService.instance)
+    @StateObject var trendingListVM = TrendingListViewModel(restaurantService: RestaurantService.instance)
     
     var body: some View {
         ScrollView (.horizontal) {
@@ -19,8 +19,7 @@ struct TrendingListView: View {
             }.fixedSize()
         }
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-    }
-    
+        }
 }
 
 struct TrendingList_Previews: PreviewProvider {
