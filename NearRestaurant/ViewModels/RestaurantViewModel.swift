@@ -7,47 +7,72 @@
 
 import Foundation
 
+class RestaurantWrappedViewModel: ObservableObject {
+    var id = UUID()
+    @Published var restaurant: RestaurantViewModel
+    
+    init(restaurant: RestaurantViewModel) {
+        self.restaurant = restaurant
+    }
+}
+
 struct RestaurantViewModel: Identifiable {
     let restaurant: Restaurant
+    var contactInformation: ContactViewModel {
+        
+        let timeOpen = restaurant.restaurantInfo.timeOpen ?? ""
+        let dayOfWeek = restaurant.restaurantInfo.dayOfWeek ?? ""
+        let locationName = restaurant.restaurantInfo.name ?? ""
+//        let phoneNumber = restaurant.restaurantInfo.phoneNumber ?? ""
+//        let longitude = restaurant.restaurantInfo.dayOfWeek ?? ""
+//        let latitude = restaurant.restaurantInfo.dayOfWeek ?? ""
+        
+        
+        return ContactViewModel(timeOpen: timeOpen, dayOfWeek: dayOfWeek, phoneNumber: "")
+    }
     
-    var categoryIs: String {
+    var location: Location {
+        Location(name: restaurant.restaurantInfo.name, latitude: restaurant.restaurantInfo.latitude , longitude: restaurant.restaurantInfo.longitude, fullAddress: restaurant.restaurantInfo.address ?? "")
+    }
+    
+    var categoryId: String {
         restaurant.categoryId
     }
     
     var id: String {
-        restaurant.restaurantInfo._id
+        restaurant.restaurantInfo._id ?? ""
     }
     var name: String {
-        restaurant.restaurantInfo.name
+        restaurant.restaurantInfo.name ?? ""
     }
     var address: String {
-        restaurant.restaurantInfo.address
+        restaurant.restaurantInfo.address ?? ""
     }
     var services: [String] {
-        restaurant.restaurantInfo.services
+        restaurant.restaurantInfo.services ?? []
     }
     var rate: String {
-        String(format: "%.1f", restaurant.restaurantInfo.rate)
+        String(format: "%.1f", restaurant.restaurantInfo.rate ?? 0.0)
     }
     var distance: String {
-        String(format: "%.2f", restaurant.restaurantInfo.distance) + " km"
+        String(format: "%.2f", restaurant.restaurantInfo.distance ?? 0.0) + " km"
     }
     var longDescription: String {
-        restaurant.restaurantInfo.longDescription
+        restaurant.restaurantInfo.longDescription ?? ""
     }
     var shortDescription: String {
-        restaurant.restaurantInfo.shortDescription
+        restaurant.restaurantInfo.shortDescription ?? ""
     }
     var shortDescriptionCut: String {
-        String(restaurant.restaurantInfo.shortDescription.prefix(20))
+        let des = restaurant.restaurantInfo.shortDescription ?? ""
+        return String(des.prefix(20))
     }
-    var timeOpen: String {
-        restaurant.restaurantInfo.timeOpen
-    }
-    var dayOfWeek: String {
-        restaurant.restaurantInfo.dayOfWeek
-    }
+
     var image: String {
-        restaurant.restaurantInfo.image
+        restaurant.restaurantInfo.image ?? ""
+    }
+    
+    var isFavourite: Bool {
+        restaurant.restaurantInfo.isFavourite ?? false
     }
 }

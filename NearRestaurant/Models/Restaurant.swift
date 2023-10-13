@@ -8,19 +8,21 @@
 import Foundation
 
 struct RestaurantInfo: Decodable {
-    let _id: String
-    let name: String
-    let address: String
-    let services: [String]
+    let _id: String?
+    let name: String?
+    let address: String?
+    let services: [String]?
 //    let dishes: [Dish]
-    let rate: Float
-    let distance: Float
-    let longDescription: String
-    let shortDescription: String
-    let timeOpen: String
-    let dayOfWeek: String
-    let image: String
-//    let isFavourite: Bool
+    let rate: Float?
+    let distance: Float?
+    let longDescription: String?
+    let shortDescription: String?
+    let timeOpen: String?
+    let dayOfWeek: String?
+    let image: String?
+    let isFavourite: Bool?
+    let latitude: Double?
+    let longitude: Double?
 }
 
 struct Restaurant: Decodable {
@@ -45,5 +47,9 @@ struct Restaurant: Decodable {
         self.categoryId = categoryId
         self.categoryName = categoryName
         self.restaurantInfo = restaurantInfo
+    }
+    
+    static func previewRestaurant() -> Restaurant {
+        return Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: true, latitude: 51.5, longitude: -0.15))
     }
 }

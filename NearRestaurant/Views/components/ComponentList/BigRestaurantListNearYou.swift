@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BigRestaurantListNearYou: View {
+struct VerticalRestaurantList: View {
     @EnvironmentObject var restaurantListVM: RestaurantListViewModel
     var body: some View {
         VStack(alignment: .leading) {
@@ -29,6 +29,6 @@ struct BigRestaurantListNearYou: View {
 
 struct BigRestaurantListNearYou_Previews: PreviewProvider {
     static var previews: some View {
-        BigRestaurantListNearYou().environmentObject(RestaurantListViewModel())
+        VerticalRestaurantList().environmentObject(RestaurantListViewModel())
     }
 }

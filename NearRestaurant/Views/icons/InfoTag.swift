@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InfoTag: View {
     var showStar: Bool?
-    var textStr: String
+    let textStr: String
     var showStroke: Bool?
     var body: some View {
         HStack {

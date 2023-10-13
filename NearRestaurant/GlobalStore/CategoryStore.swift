@@ -9,9 +9,13 @@ import Foundation
 
 class CategoryStore: ObservableObject {
     @Published var catetoryList: [Category] = [Category]()
-    var categoryService = RestaurantService.instance
+    let categoryService: RestaurantServiceProtocol
     
-    init() {
+    init(categoryService: RestaurantServiceProtocol) {
+        self.categoryService = categoryService
+    }
+    
+    func fetchCategory(){
         categoryService.fetchCategory { result in
             switch result {
             case .success(let data):

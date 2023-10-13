@@ -9,7 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CustomImage: View {
-    var urlString: String
+    let urlString: String
     var width: CGFloat?
     var height: CGFloat?
     
@@ -22,7 +22,7 @@ struct CustomImage: View {
                 Rectangle().foregroundColor(.gray)
             }
             .scaledToFill()
-            .frame(width: width ?? .infinity, height: height ?? .infinity)
+            .frame(width: width ?? UIScreen.main.bounds.width, height: height ?? UIScreen.main.bounds.height)
             .cornerRadius(10)
     }
 }

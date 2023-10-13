@@ -8,9 +8,9 @@
 import SwiftUI
 
 enum CustomColor {
-    static var gray: String = "9D9D9E"
-    static var gray1: String = "EEEEEF"
-    static var mainRed: String = "CD5939"
+    static let gray: String = "9D9D9E"
+    static let gray1: String = "EEEEEF"
+    static let mainRed: String = "CD5939"
 }
 
 extension Color {
