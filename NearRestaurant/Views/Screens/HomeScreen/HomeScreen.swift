@@ -9,8 +9,6 @@ import SwiftUI
 import AppCenterCrashes
 
 struct HomeScreen: View {
-    @StateObject private var restaurantListVM = RestaurantListViewModel(restaurantService: RestaurantService.instance)
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -31,8 +29,6 @@ struct HomeScreen: View {
                 CategoryListView()
                 Spacer()
             }.padding()
-                .environmentObject(restaurantListVM)
-            
                 .onAppear() {
                     if Crashes.hasCrashedInLastSession {
                         print ("Sorry an error occurs")
@@ -45,6 +41,6 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen().environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
+        HomeScreen()
     }
 }

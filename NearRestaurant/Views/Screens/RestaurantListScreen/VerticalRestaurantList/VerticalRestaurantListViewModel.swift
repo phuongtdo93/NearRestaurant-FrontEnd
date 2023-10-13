@@ -26,7 +26,6 @@ class VerticalRestaurantListViewModel: ObservableObject {
                 case .success(let data):
                     self.restaurants = data.map(RestaurantViewModel.init)
                 case .failure(let err):
-//                    print("VerticalRestaurantListViewModel fetchRestaurantByCategoryId failed: \(err)")
                     self.logging.error("VerticalRestaurantListViewModel fetchRestaurantByCategoryId failed: \(err)")
                 }
             }

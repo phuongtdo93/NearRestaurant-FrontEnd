@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct RestaurantDetailsScreen: View {
-    let restaurantVM: RestaurantViewModel
+    @ObservedObject var restaurantVM: RestaurantWrappedViewModel
     
     var body: some View {
             VStack {
-                BannerView(isFavourite: restaurantVM.isFavourite, restaurantVM: restaurantVM)
-                Text(restaurantVM.longDescription)
+                BannerView(isFavourite: restaurantVM.restaurant.isFavourite)
+                    .environmentObject(restaurantVM)
+                Text(restaurantVM.restaurant.longDescription)
                     .font(.footnote)
                     .multilineTextAlignment(.leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                ContactInfoView(contact: restaurantVM.contactInformation) .padding(10)
+                ContactInfoView(contact: restaurantVM.restaurant.contactInformation) .padding(10)
                 List {
                     NavigationLink {
                         MenuScreen()
@@ -30,7 +31,7 @@ struct RestaurantDetailsScreen: View {
                         Text("Reviews")
                     }
                     NavigationLink {
-                        RestaurantImagesScreen(categoryId: restaurantVM.categoryId, restaurantId: restaurantVM.id)
+                        RestaurantImagesScreen(categoryId: restaurantVM.restaurant.categoryId, restaurantId: restaurantVM.restaurant.id)
                     } label: {
                         Text("Images")
                     }
@@ -58,6 +59,6 @@ struct RestaurantDetailsScreen: View {
 
 struct RestaurantDetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailsScreen(restaurantVM: RestaurantViewModel(restaurant: Restaurant(categoryId: "", categoryName: "", restaurantInfo: RestaurantInfo(_id: "", name: "Bakc name", address: "123 Nblio Holay", services: ["WIFI"], rate: 4.5, distance: 12, longDescription: "Long and long", shortDescription: "Short", timeOpen: "08am-12am", dayOfWeek: "Mon to Fri", image: "https://s3.us-west-2.amazonaws.com/images.unsplash.com/application-1688213434869-d9e3e4ed414dimage", isFavourite: false, latitude: -0.12, longitude: 51.4))))
+        RestaurantDetailsScreen(restaurantVM: RestaurantWrappedViewModel(restaurant: RestaurantViewModel(restaurant: Restaurant.previewRestaurant())))
     }
 }

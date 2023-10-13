@@ -9,28 +9,28 @@ import SwiftUI
 
 struct BannerView: View {
     @State var isFavourite = true
-    let restaurantVM: RestaurantViewModel
+    @EnvironmentObject var restaurantVM: RestaurantWrappedViewModel
     private let setFavouriteProtocol = SetRestaurantFavouriteProtocolImp(restaurantService: RestaurantService.instance)
     
     var body: some View {
         ZStack (alignment: Alignment(horizontal: .leading, vertical: .bottom)) {
-            CustomImage(urlString: restaurantVM.image, height: 300)
+            CustomImage(urlString: restaurantVM.restaurant.image, height: 300)
                 
             VStack (alignment: .leading) {
                 HStack{
-                    InfoTag(showStar: true, textStr: restaurantVM.rate)
-                    InfoTag(textStr: restaurantVM.distance)
+                    InfoTag(showStar: true, textStr: restaurantVM.restaurant.rate)
+                    InfoTag(textStr: restaurantVM.restaurant.distance)
                 }
-                Text(restaurantVM.name)
+                Text(restaurantVM.restaurant.name)
                     .font(.custom("Arial", size: 30))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
-                Text(restaurantVM.address)
+                Text(restaurantVM.restaurant.address)
                     .font(.custom("Arial", size: 15))
                     .foregroundColor(.white)
                     .fontWeight(.light)
                 HStack {
-                    ForEach(restaurantVM.services, id: \.self) { item in
+                    ForEach(restaurantVM.restaurant.services, id: \.self) { item in
                         InfoTag(textStr: item)
                     }
                     Spacer()
@@ -43,7 +43,8 @@ struct BannerView: View {
     }
 
 struct Banner_Previews: PreviewProvider {
-    static var previews: some View {
-        BannerView(restaurantVM: RestaurantViewModel(restaurant: Restaurant.previewRestaurant()))
-    }
+    static var previews: some View {(
+        BannerView()
+            .environmentObject(RestaurantWrappedViewModel(restaurant: RestaurantViewModel(restaurant: Restaurant.previewRestaurant())))
+    )}
 }
