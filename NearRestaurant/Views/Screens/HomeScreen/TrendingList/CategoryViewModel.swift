@@ -8,7 +8,10 @@
 import Foundation
 
 struct CategoryViewModel: Identifiable {
-    let category: Category
+    private let category: Category
+    init(category: Category) {
+        self.category = category
+    }
     
     
     var id: String {

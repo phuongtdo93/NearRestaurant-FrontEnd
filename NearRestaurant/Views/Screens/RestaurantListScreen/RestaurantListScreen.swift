@@ -9,11 +9,12 @@ import SwiftUI
 
 struct RestaurantListScreen: View {
     @State private var selectedItem: String = ""
+    let categoryId: String
     private let optionList = ["List", "Map"]
     
     var body: some View {
         VStack {
-           VerticalRestaurantListView()
+           VerticalRestaurantListView(categoryId: categoryId)
         }
         .toolbar {
             ToolbarItem(placement: .navigation)  {
@@ -35,6 +36,6 @@ struct RestaurantListScreen: View {
 
 struct RestaurantList_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantListScreen().environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
+        RestaurantListScreen(categoryId: "").environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
     }
 }

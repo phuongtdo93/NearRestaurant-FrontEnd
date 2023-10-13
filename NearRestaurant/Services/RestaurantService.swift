@@ -8,6 +8,9 @@
 import Foundation
 
 struct RestaurantService: RestaurantServiceProtocol {
+    
+    
+    
     typealias RestaurantImage = String
     
     let categoryService = UtilityService<Category>()
@@ -41,5 +44,10 @@ struct RestaurantService: RestaurantServiceProtocol {
     func fetchRestaurantImages(categoryId: String, restaurantId: String, completion: @escaping (Result<[String], CategoryError>) -> Void ){
         let url = NearRestaurantEndpoint.getImagesByRestaurant(categoryId, restaurantId)
        return imageService.fetchData(apiEndpoint: url, completion: completion)
+    }
+    
+    func fetchRestaurantByCategoryId(categoryId: String, completion: @escaping (Result<[Restaurant], CategoryError>) -> Void) {
+        let url = NearRestaurantEndpoint.fetchRestaurantByCategoryId(categoryId)
+        return restaurantService.fetchData(apiEndpoint: url, completion: completion)
     }
 }

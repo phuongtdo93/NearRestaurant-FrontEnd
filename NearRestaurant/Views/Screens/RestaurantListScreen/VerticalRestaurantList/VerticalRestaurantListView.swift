@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct VerticalRestaurantListView: View {
-    @EnvironmentObject var restaurantListVM: RestaurantListViewModel
+    let categoryId: String
+    @StateObject private var verticalRestaurantListVM = VerticalRestaurantListViewModel(restaurantService: RestaurantService.instance)
+    
+    init(categoryId: String) {
+        self.categoryId = categoryId
+        
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -17,18 +24,21 @@ struct VerticalRestaurantListView: View {
             }
             ScrollView(.vertical) {
                 LazyVStack {
-                    ForEach(restaurantListVM.restaurantList, id: \.id) { restaurant in
+                    ForEach(verticalRestaurantListVM.restaurants, id: \.id) { restaurant in
                         RestaurantItemHorizontalView(restaurantVM: restaurant)
                     }
                 }
             }
             
         }.padding()
+        .onAppear() {
+            verticalRestaurantListVM.fetchRestaurantByCategoryId(categoryId: categoryId)
+        }
     }
 }
 
 struct BigRestaurantListNearYou_Previews: PreviewProvider {
     static var previews: some View {
-        VerticalRestaurantListView().environmentObject(RestaurantListViewModel(restaurantService: RestaurantService.instance))
+        VerticalRestaurantListView(categoryId: "64ad211acde3b553079129f1")
     }
 }

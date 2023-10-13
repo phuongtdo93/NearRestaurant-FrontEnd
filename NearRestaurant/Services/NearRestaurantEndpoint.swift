@@ -21,4 +21,8 @@ enum NearRestaurantEndpoint {
     static let setRestaurantFavourite: (String, String, Bool) -> String = { categoryId,restaurantId,isFavourite in
         NearRestaurantEndpoint.domain + "\(categoryId)/restaurants/\(restaurantId)?isFavourite=\(isFavourite)"
     }
+    
+    static let fetchRestaurantByCategoryId: (String) -> String = { categoryId in
+        NearRestaurantEndpoint.domain + "/categories/\(categoryId)/restaurants"
+    }
 }

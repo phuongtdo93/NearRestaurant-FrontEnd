@@ -20,7 +20,7 @@ struct CategoryListView: View {
             ScrollView(.vertical) {
                 LazyVGrid(columns: gridItem) {
                     ForEach(categoryListViewModel.categoryList, id:\.id) { item in
-                        CategoryView(text: item.name)
+                        CategoryView(name: item.name, categoryId: item.id)
                     }
                 }
             }

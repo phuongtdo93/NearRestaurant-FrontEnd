@@ -26,14 +26,8 @@ struct TrendingSquareView: View {
                     .font(.footnote)
                     .animation(.easeInOut)
                 Spacer()
-//                .padding(5)
-                
             }
             .padding(EdgeInsets(top: 15, leading: 10, bottom: 10, trailing: 15))
-            
-            
-            
-            
         }.frame(width: .infinity, height: 300)
         
     }
@@ -41,6 +35,6 @@ struct TrendingSquareView: View {
 
 struct TrendingSquare_Previews: PreviewProvider {
     static var previews: some View {
-        TrendingSquareView()
+        TrendingSquareView().environmentObject(RestaurantWrappedViewModel(restaurant: RestaurantViewModel(restaurant: Restaurant.previewRestaurant())))
     }
 }

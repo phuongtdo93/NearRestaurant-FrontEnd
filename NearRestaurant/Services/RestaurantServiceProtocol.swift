@@ -19,7 +19,8 @@ protocol RestaurantServiceProtocol {
     
     func setFavouriteRestaurant( categoryId: String, restaurantId: String,isFavourite:  Bool, completion: @escaping(Result<Bool, CategoryError>) -> Void)
     
-    
     func fetchRestaurantImages(categoryId: String, restaurantId: String, completion: @escaping (Result<[String], CategoryError>) -> Void )
+    
+    func fetchRestaurantByCategoryId(categoryId: String, completion: @escaping (Result<[Restaurant], CategoryError>) -> Void )
     
 }

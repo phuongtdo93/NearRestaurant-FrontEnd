@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct CategoryView: View {
-    let text: String
+    let name: String
+    let categoryId: String
+    
     var body: some View {
         NavigationLink {
-            RestaurantListScreen()
+            RestaurantListScreen(categoryId: categoryId)
         } label: {
             HStack {
-                Text(text).foregroundColor(.black)
+                Text(name).foregroundColor(.black)
                 Spacer()
                 Image(systemName: "star.fill")
                     .foregroundColor(Color(hex: CustomColor.gray1))
@@ -35,6 +37,6 @@ struct CategoryView: View {
 
 struct Categories_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(text: "Italian")
+        CategoryView(name: "Italian", categoryId: "64ad211acde3b553079129f1")
     }
 }

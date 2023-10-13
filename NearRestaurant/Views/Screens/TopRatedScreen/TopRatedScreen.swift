@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopRatedScreen: View {
-    @EnvironmentObject var trendingRestaurant: RestaurantWrappedViewModel
+//    @EnvironmentObject var trendingRestaurant: RestaurantWrappedViewModel
     
     var body: some View {
         VStack {
@@ -17,7 +17,7 @@ struct TopRatedScreen: View {
                     Text("Restaurants")
                         .font(.title)
                         .fontWeight(.bold)
-                    Text("New York, USA \(trendingRestaurant.restaurant.name)")
+                    Text("New York, USA")
                         .font(.callout)
                         .foregroundColor(.gray)
                     
@@ -26,7 +26,7 @@ struct TopRatedScreen: View {
                 UserIcon()
             }
             
-//            TrendingSquareView()
+            TrendingSquareView()
             TopRatedListView()
             
             
@@ -37,5 +37,6 @@ struct TopRatedScreen: View {
 struct TopRatedScreen_Previews: PreviewProvider {
     static var previews: some View {
         TopRatedScreen()
+            .environmentObject(RestaurantWrappedViewModel(restaurant: RestaurantViewModel(restaurant: Restaurant.previewRestaurant())))
     }
 }
