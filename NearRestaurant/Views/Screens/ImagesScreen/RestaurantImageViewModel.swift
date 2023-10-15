@@ -11,16 +11,15 @@ import SwiftUI
 
 class RestaurantImageViewModel: ObservableObject {
     
-    private let label = "com.salmdo.nearRestaurant.images"
     private let restaurantService: RestaurantServiceProtocol?
     private let imageService: ImageService?
     private let handleLogging: Logger?
     private var imageURLs: [String] = []
-    let downloadGroup = DispatchGroup()
+   
     
     var categoryId: String?
     var restaurantId: String?
-    @Published var isLoading = false
+    @Published var isLoading = true
     @Published var images: [UIImage] = []
     
     
@@ -34,12 +33,12 @@ class RestaurantImageViewModel: ObservableObject {
     }
     
     private func downloadImage(){
-
+        let downloadGroup = DispatchGroup()
         
         for imageUrl in imageURLs {
-            self.downloadGroup.enter()
+            downloadGroup.enter()
            imageService?.fetchImage(url: imageUrl, completion: { data in
-               self.downloadGroup.leave()
+               downloadGroup.leave()
                if let data , let photo = UIImage(data: data) {
                    self.images.append(photo)
                }
@@ -48,8 +47,6 @@ class RestaurantImageViewModel: ObservableObject {
         
         downloadGroup.notify(queue: DispatchQueue.main) {
             self.isLoading = false
-            print("imageURLs")
-            print(self.images)
         }
         
     }
@@ -68,7 +65,7 @@ class RestaurantImageViewModel: ObservableObject {
         })
     }
     
-    func fetchRestaurantImages() async -> [String] {
+    private func fetchRestaurantImages() async -> [String] {
         guard let categoryId, let restaurantId else { return [] }
         
         return await withCheckedContinuation({continuation in

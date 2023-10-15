@@ -9,8 +9,6 @@ import Foundation
 
 struct RestaurantService: RestaurantServiceProtocol {
     
-    
-    
     typealias RestaurantImage = String
     
     let categoryService = UtilityService<Category>()

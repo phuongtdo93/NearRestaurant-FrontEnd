@@ -300,13 +300,13 @@
 		14B0A70D2A4C4EF2006BDE0A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				142B0D862AC47B220045DFD3 /* ImagesScreen */,
 				14B61BE92AA42C79005BA587 /* HomeScreen */,
 				14B61BF72AA47B87005BA587 /* TopRatedScreen */,
 				14B61BFB2AA47E27005BA587 /* RestaurantDetailsScreen */,
 				14B61BFE2AA47FFD005BA587 /* RestaurantListScreen */,
 				14B61C022AA481B5005BA587 /* SearchScreen */,
 				14B61C012AA48176005BA587 /* MenuScreen */,
+				142B0D862AC47B220045DFD3 /* ImagesScreen */,
 				146858692AC761C5003747B8 /* MapScreen */,
 			);
 			path = Screens;
