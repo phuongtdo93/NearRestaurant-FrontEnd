@@ -23,13 +23,16 @@ struct ImageService {
         }
         
         URLSession.shared.dataTask(with: urlFromString) { data, res, err in
+            let statusCode = (res as? HTTPURLResponse)?.statusCode
+            
             DispatchQueue.main.async {
-                guard let data, err != nil else {
+                guard let data, err == nil, statusCode == 200 else {
                     completion(nil)
                     return
                 }
                 completion(data)
             }
         }.resume()
+   
     }
 }
