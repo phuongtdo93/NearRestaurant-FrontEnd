@@ -8,7 +8,7 @@
 import XCTest
 @testable import NearRestaurant
 
-final class testRestaurantService: XCTestCase {
+final class TestUtilityService: XCTestCase {
     var config: URLSessionConfiguration?
     var urlSession: URLSession?
 
@@ -27,8 +27,9 @@ final class testRestaurantService: XCTestCase {
         
     }
 
-    func testRestaurantService_fetchGenericData_ReturnCorrectData() {
+    func testUtilityService_fetchGenericData_ReturnCorrectData() {
         //Arrange
+        let categories = [NearRestaurant.Category(id: "123", name: "909")]
         let expectedResultStr = "[{\"_id\":\"123\",\"name\":\"Category\"}]"
         MockUrlSession.responseData = expectedResultStr.data(using: .utf8)
         
@@ -51,7 +52,7 @@ final class testRestaurantService: XCTestCase {
         self.wait(for: [expectation], timeout: 5)
     }
     
-    func testRestaurantService_invalidURLProvided_ReturnFailure() {
+    func testUtilityService_invalidURLProvided_ReturnFailure() {
         //Arrange
         MockUrlSession.responseError = CategoryError.invalidUrl
         
@@ -73,15 +74,18 @@ final class testRestaurantService: XCTestCase {
         }
         self.wait(for: [expectation], timeout: 5)
     }
-    func testRestaurantService_invalidDataStructureReturned_ReturnFailure() {
+    func testUtilityService_notAvailableData_ReturnFailure() {
+        
+    }
+    
+    func testUtilityService_invalidDataStructureReturned_ReturnFailure() {
         //Arrange
         let expectedResultStr = "[{\"id\":\"123\",\"na\":\"Category\"}]"
         MockUrlSession.responseData = expectedResultStr.data(using: .utf8)
-        MockUrlSession.responseError = CategoryError.invalidDataStructure
         
         let utilityService = UtilityService<NearRestaurant.Category>(urlSession: urlSession!)
         
-        let expectation = self.expectation(description: "Fetch function return data")
+        let expectation = self.expectation(description: "Fetch function returns error invalidDataStructure")
         //Act
         utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant) { result in
             //Assert

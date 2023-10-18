@@ -24,8 +24,9 @@ struct UtilityService<T:Decodable> {
             return completion(.failure(.invalidUrl))
         }
         self.urlSession.dataTask(with: url) { data, res, error in
-            let statusCode = (res as? HTTPURLResponse)?.statusCode
-            guard let data, error == nil, statusCode == 200 else {
+//            let statusCode = (res as? HTTPURLResponse)?.statusCode
+//            guard let data, error == nil, statusCode == 200 else {
+            guard let data, error == nil else {
                 //Write unit test for this case
                 return completion(.failure(CategoryError.notAvailableData))
             }
@@ -51,8 +52,7 @@ struct UtilityService<T:Decodable> {
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         self.urlSession.dataTask(with: urlRequest) { data, response, err in
-            let statusCode = (response as? HTTPURLResponse)?.statusCode
-            guard let data, err == nil, statusCode == 200 else {
+            guard let data, err == nil else {
                 return completion(.failure(.notAvailableData))
             }
             do {

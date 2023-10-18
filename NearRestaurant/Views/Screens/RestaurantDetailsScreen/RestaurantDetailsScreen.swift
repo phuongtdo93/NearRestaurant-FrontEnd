@@ -41,7 +41,8 @@ struct RestaurantDetailsScreen: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        SearchScreen()
+//                        SearchScreen()
+                        CreateReservationScreen(restaurantName: restaurantVM.restaurant.name, restaurantAddress: restaurantVM.restaurant.address, optionList: ["1 person", "2 persons"])
                     } label: {
                         Text("BOOKING")
                             .foregroundColor(.white)

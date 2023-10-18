@@ -17,6 +17,7 @@ struct CategoryView: View {
         } label: {
             HStack {
                 Text(name).foregroundColor(.black)
+                    .accessibilityIdentifier("idCategoryName")
                 Spacer()
                 Image(systemName: "star.fill")
                     .foregroundColor(Color(hex: CustomColor.gray1))
@@ -31,6 +32,7 @@ struct CategoryView: View {
             .padding(10)
             .background(Color(hex: CustomColor.gray1))
             .cornerRadius(10)
+            
         }
     }
 }
