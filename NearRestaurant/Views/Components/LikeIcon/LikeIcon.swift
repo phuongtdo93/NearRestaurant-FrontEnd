@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-class RestaurantFavourite {
-    let categoryId: String
-    let restaurantId: String
-    var isFavourite: Bool = false
-    
-    init(categoryId: String, restaurantId: String)
-    {
-        self.categoryId = categoryId
-        self.restaurantId = restaurantId
-    }
-}
-class DishFavourite: RestaurantFavourite {
-    let dishId: String
-    
-    init(categoryId: String, restaurantId: String, dishId: String) {
-        self.dishId = dishId
-        super.init(categoryId: categoryId, restaurantId: restaurantId)
-    }
-}
-
-protocol SetFavouriteProtocol {
-    func setFavourite(restaurant: RestaurantFavourite) async -> Bool
-}
-
 struct LikeIcon: View {
     var showStroke: Bool?
     var padding: CGFloat?
@@ -54,6 +30,7 @@ struct LikeIcon: View {
                     RoundedRectangle(cornerRadius: 100)
                         .stroke(.gray, lineWidth: showStroke ?? false ? 1 : 0)
                 }
+                .accessibilityIdentifier("imgHeartLikeIcon")
         }
     }
     

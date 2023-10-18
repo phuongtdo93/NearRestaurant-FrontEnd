@@ -8,7 +8,7 @@
 import Foundation
 
 struct Category: Decodable, Equatable {
-    let _id: String?
+    let _id: String
     let name: String?
 //    let restaurant: [Restaurant]
     init(id: String, name: String) {

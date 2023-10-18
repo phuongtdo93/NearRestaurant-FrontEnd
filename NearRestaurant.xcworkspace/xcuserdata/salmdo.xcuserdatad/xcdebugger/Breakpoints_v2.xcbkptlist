@@ -7,175 +7,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F426FB8A-2603-4C8D-ADF9-B217E8C47F3D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NearRestaurant/Services/ImageService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "fetchImage(url:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F426FB8A-2603-4C8D-ADF9-B217E8C47F3D - 1e4985e8357eebb1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NearRestaurant.ImageService.fetchImage(url: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "NearRestaurant"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/ImageService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "280">
-               </Location>
-               <Location
-                  uuid = "F426FB8A-2603-4C8D-ADF9-B217E8C47F3D - 1e4985e8357eeb90"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NearRestaurant.ImageService.fetchImage(url: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "NearRestaurant"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/ImageService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "280">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A20D9A85-9228-4BD3-BF55-42ABA76EF457"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NearRestaurant/Views/Screens/ImagesScreen/RestaurantImageViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "downloadImage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2C8C6E43-3F5E-4E66-8F4C-230D012408B0"
+            uuid = "7237946A-7CF8-45EB-95E4-98A0C2BB431A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NearRestaurant/Services/ImageService.swift"
+            filePath = "NearRestaurantUITests/TestHomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "fetchImage(url:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2C8C6E43-3F5E-4E66-8F4C-230D012408B0 - 1e4985e8357eeb14"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NearRestaurant.ImageService.fetchImage(url: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "NearRestaurant"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/ImageService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "2C8C6E43-3F5E-4E66-8F4C-230D012408B0 - 1e4985e8357eeb14"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NearRestaurant.ImageService.fetchImage(url: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "NearRestaurant"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/ImageService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "164">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7CBD064F-2543-4C49-855C-1096CF2D8122"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NearRestaurant/Services/ImageService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "fetchImage(url:completion:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "test_tapOnTrendingRectangleView_navigateToTopRatedScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A361B639-3319-48A5-AF7C-CF33099CAA2D"
-            shouldBeEnabled = "Yes"
+            uuid = "B2F258D6-B8B7-4399-9868-8C892820E4D3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NearRestaurant/Services/ImageService.swift"
+            filePath = "NearRestaurantUITests/TestHomePage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "fetchImage(url:completion:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "test_tapCategoryListView_navigateToRestaurantListScreen()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "A361B639-3319-48A5-AF7C-CF33099CAA2D - f83375c6cf488dad"
+                  uuid = "B2F258D6-B8B7-4399-9868-8C892820E4D3 - 179df58899a37c6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NearRestaurant.ImageService.fetchImage(url: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "NearRestaurant"
+                  symbolName = "NearRestaurantUITests.TestHomePage.test_tapCategoryListView_navigateToRestaurantListScreen() -&gt; ()"
+                  moduleName = "NearRestaurantUITests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/ImageService.swift"
+                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurantUITests/TestHomePage.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "312">
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "A361B639-3319-48A5-AF7C-CF33099CAA2D - f83375c6cf488dad"
+                  uuid = "B2F258D6-B8B7-4399-9868-8C892820E4D3 - 179df58899a3625"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NearRestaurant.ImageService.fetchImage(url: Swift.String, completion: (Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "NearRestaurant"
+                  symbolName = "NearRestaurantUITests.TestHomePage.test_tapCategoryListView_navigateToRestaurantListScreen() -&gt; ()"
+                  moduleName = "NearRestaurantUITests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/ImageService.swift"
+                  urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurantUITests/TestHomePage.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "792">
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "108">
                </Location>
             </Locations>
          </BreakpointContent>

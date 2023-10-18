@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct VerticalRestaurantListView: View {
+struct RestaurantListScreen: View {
     let categoryId: String
-    @StateObject private var verticalRestaurantListVM = VerticalRestaurantListViewModel(restaurantService: RestaurantService.instance)
+    @StateObject private var verticalRestaurantListVM = RestaurantListScreenViewModel(restaurantService: RestaurantService.instance)
     
     init(categoryId: String) {
         self.categoryId = categoryId
@@ -37,8 +37,8 @@ struct VerticalRestaurantListView: View {
     }
 }
 
-struct BigRestaurantListNearYou_Previews: PreviewProvider {
+struct RestaurantListScreen_Previews: PreviewProvider {
     static var previews: some View {
-        VerticalRestaurantListView(categoryId: "64ad211acde3b553079129f1")
+        RestaurantListScreen(categoryId: "64ad211acde3b553079129f1")
     }
 }

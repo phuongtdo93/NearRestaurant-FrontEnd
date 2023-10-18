@@ -27,6 +27,7 @@ struct HomeScreen: View {
                 TrendingListView()
                 HorizontalRestaurantListView()
                 CategoryListView()
+                    
                 Spacer()
             }.padding()
                 .onAppear() {

@@ -10,7 +10,7 @@ import Foundation
 import OSLog
 
 
-class VerticalRestaurantListViewModel: ObservableObject {
+class RestaurantListScreenViewModel: ObservableObject {
     @Published var restaurants: [RestaurantViewModel] = []
     private let restaurantService: RestaurantServiceProtocol
     private let logging = HandleLogging.instance

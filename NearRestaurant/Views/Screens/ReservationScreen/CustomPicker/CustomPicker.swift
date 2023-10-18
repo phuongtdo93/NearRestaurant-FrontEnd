@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CustomPicker: View {
-    let optionList: [String] = ["2 person", "3 person"]
-    @State var selectedOption: String = ""
+    let optionList: [String]
+    @Binding var selectedOption: String
     
     var body: some View {
         Picker("Select persion", selection: $selectedOption) {
@@ -26,6 +26,6 @@ struct CustomPicker: View {
 
 struct CustomPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPicker()
+        CustomPicker(optionList: ["2 person", "3 person"], selectedOption: .constant("2 person"))
     }
 }
