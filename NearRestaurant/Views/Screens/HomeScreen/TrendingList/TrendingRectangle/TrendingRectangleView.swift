@@ -23,6 +23,7 @@ struct TrendingRectangleView: View {
                     .foregroundColor(.white)
                     .font(.title3)
                     .fontWeight(.bold)
+                    .accessibilityIdentifier("idRestaurantName")
                 HStack(alignment: .bottom) {
                     Text(restaurantVM.restaurant.shortDescriptionCut)
                         .font(.caption)
@@ -32,6 +33,7 @@ struct TrendingRectangleView: View {
                     NavigationLink {
                         TopRatedScreen()
                         .environmentObject(restaurantVM)
+                        
                     } label: {
                         Text("SEE ALL")
                             .font(.subheadline)
@@ -39,7 +41,9 @@ struct TrendingRectangleView: View {
                             .padding(10)
                             .background(.white)
                             .cornerRadius(10)
+                            .accessibilityIdentifier("idTopRatedScreenNavigationLinkInTrendingRectangleView")
                     }
+                    
 
                 }
                 

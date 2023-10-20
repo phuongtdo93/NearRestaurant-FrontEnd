@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BigCircle: View {
     let content: String
+    
     var body: some View {
         Image(systemName: content)
             .foregroundColor(.gray)

@@ -22,7 +22,7 @@ struct RestaurantImagesScreen: View {
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible())
+//        GridItem(.flexible())
     ]
     
     var body: some View {
@@ -43,7 +43,7 @@ struct RestaurantImagesScreen: View {
                     }
                 }
             }
-        }
+        }.padding()
         .onAppear() {
             restaurantImageVM.fetchImages()
         }

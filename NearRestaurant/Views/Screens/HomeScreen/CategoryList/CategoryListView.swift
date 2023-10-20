@@ -24,6 +24,7 @@ struct CategoryListView: View {
                     }
                 }
             }
+            .accessibilityIdentifier("idCategoryListView")
         }
         
     }
