@@ -8,7 +8,7 @@
 import XCTest
 @testable import NearRestaurant
 
-final class TestUtilityService: XCTestCase {
+final class UtilityServiceTest: XCTestCase {
     var config: URLSessionConfiguration?
     var urlSession: URLSession?
 
@@ -54,7 +54,7 @@ final class TestUtilityService: XCTestCase {
     
     func testUtilityService_invalidURLProvided_ReturnFailure() {
         //Arrange
-        MockUrlSession.responseError = CategoryError.invalidUrl
+        MockUrlSession.responseError = ServiceError.invalidUrl
         
         
         let utilityService = UtilityService<NearRestaurant.Category>(urlSession: urlSession!)
@@ -67,7 +67,7 @@ final class TestUtilityService: XCTestCase {
             case .success(let res):
                 XCTAssertEqual(res, [])
             case .failure(let err):
-                XCTAssertEqual(err, CategoryError.invalidUrl, "Fetch function return error but it does not")
+                XCTAssertEqual(err, ServiceError.invalidUrl, "Fetch function return error but it does not")
                 
             }
             expectation.fulfill()
@@ -93,7 +93,7 @@ final class TestUtilityService: XCTestCase {
             case .success(let res):
                 XCTAssertEqual(res, [])
             case .failure(let err):
-                XCTAssertEqual(err, CategoryError.invalidDataStructure)
+                XCTAssertEqual(err, ServiceError.invalidDataStructure)
                 
             }
             expectation.fulfill()
@@ -110,14 +110,11 @@ final class TestUtilityService: XCTestCase {
         
         let expectation = self.expectation(description: "Set Favourite restaurant successfully")
         //Act
-        utilityService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", true)) { result in
-            print(result)
-            
+        utilityService.patchDataNoInput(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", true)) { result in
             switch result {
             case .success(let res):
-                print( res)
                 XCTAssertTrue(res)
-            case .failure(let err):
+            case .failure(_):
                 XCTAssertFalse(false)
             }
             expectation.fulfill()
@@ -126,6 +123,31 @@ final class TestUtilityService: XCTestCase {
         //Assert
         self.wait(for: [expectation], timeout: 10)
     }
-    func testRestaurantService_isNotFavouriteRestaurant_ReturnFalse(){}
+    func testRestaurantService_isNotFavouriteRestaurant_ReturnFalse(){
+        //Arrange
+        
+        let expectedResult = "{\"success\":true}"
+        MockUrlSession.responseData = expectedResult.data(using: .utf8)
+        
+        let utilityService = UtilityService<Restaurant>(urlSession: urlSession!)
+        let expectation = self.expectation(description: "Set Not Favourite restaurant successfully")
+        
+        //Act
+        utilityService.patchDataNoInput(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", false)) { result in
+            switch result {
+            case .success(let res):
+                XCTAssertTrue(res)
+            case .failure(_):
+                XCTAssertFalse(false)
+            }
+            expectation.fulfill()
+        }
+        //Assert
+        self.wait(for: [expectation], timeout: 10)
+    }
+    
+    
+    
+    
 
 }

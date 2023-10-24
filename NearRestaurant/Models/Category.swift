@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Decodable, Equatable {
+struct Category: Codable, Equatable {
     let _id: String
     let name: String?
 //    let restaurant: [Restaurant]

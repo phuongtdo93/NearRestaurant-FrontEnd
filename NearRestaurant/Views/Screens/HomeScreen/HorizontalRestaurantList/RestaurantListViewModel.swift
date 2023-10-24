@@ -16,6 +16,7 @@ class RestaurantListViewModel: ObservableObject {
     init(restaurantService: RestaurantServiceProtocol){
         self.restaurantService = restaurantService
         fetchRestaurant()
+        handleLogging.info("Hello this is my application")
             
     }
     
