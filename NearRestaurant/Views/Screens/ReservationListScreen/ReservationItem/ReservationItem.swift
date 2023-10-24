@@ -26,6 +26,12 @@ struct ReservationItem: View {
                     .padding(EdgeInsets(top: -10, leading: 0, bottom: 0, trailing: 0))
             }
             Spacer()
+            HStack {
+                
+                BigCircle(content: "location.fill")
+                BigCircle(content: "phone.fill")
+            }
+            
         }
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
     }

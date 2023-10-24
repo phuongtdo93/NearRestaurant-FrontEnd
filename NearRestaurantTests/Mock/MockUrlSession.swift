@@ -23,7 +23,6 @@ class MockUrlSession: URLProtocol {
     override func startLoading() {
         if let error = MockUrlSession.responseError {
             self.client?.urlProtocol(self, didFailWithError: error)
-//            self.client?.urlProtocol(self, didLoad: MockUrlSession.responseData ?? Data())
         } else {
             self.client?.urlProtocol(self, didLoad: MockUrlSession.responseData ?? Data())
             
