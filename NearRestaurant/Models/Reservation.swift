@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Reservation {
-    let numberOfPeople: Int?
-    let date: Date?
-    let time: String?
-}
-
-struct ReservationFormValidator {
-    func isNumberOfPeopleValid(numberOfPeople: Int) -> Bool {
-        return numberOfPeople > 0
+struct Reservation: Codable {
+    let numberOfPeople: Int
+    let date: Date
+    let restaurant: ReservationRestaurant?
+    
+    struct ReservationRestaurant: Codable {
+        let id: String
+        let name: String?
+        let image: String?
     }
 }

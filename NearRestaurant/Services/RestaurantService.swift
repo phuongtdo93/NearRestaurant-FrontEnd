@@ -22,29 +22,29 @@ struct RestaurantService: RestaurantServiceProtocol {
         print("Init single RestaurantService")
     }
     
-    func fetchCategory(completion: @escaping (Result<[Category], CategoryError>) -> Void){
+    func fetchCategory(completion: @escaping (Result<[Category], ServiceError>) -> Void){
         categoryService.fetchData(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint, completion: completion)
     }
     
-    func fetchRestaurant(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
+    func fetchRestaurant(completion: @escaping (Result<[Restaurant], ServiceError>) -> Void){
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.restaurantsEndpoint, completion: completion)
     }
-    func fetchAllTrending(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
+    func fetchAllTrending(completion: @escaping (Result<[Restaurant], ServiceError>) -> Void){
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getAllTrending, completion: completion)
     }
-    func fetchTop5Restaurant(completion: @escaping (Result<[Restaurant], CategoryError>) -> Void){
+    func fetchTop5Restaurant(completion: @escaping (Result<[Restaurant], ServiceError>) -> Void){
         restaurantService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant, completion: completion)
     }
-    func setFavouriteRestaurant( categoryId: String, restaurantId: String,isFavourite:  Bool, completion: @escaping(Result<Bool, CategoryError>) -> Void) {
-        restaurantService.setFavouriteRestaurant(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite(categoryId, restaurantId, isFavourite), completion: completion)
+    func setFavouriteRestaurant( categoryId: String, restaurantId: String,isFavourite:  Bool, completion: @escaping(Result<Bool, ServiceError>) -> Void) {
+        restaurantService.patchDataNoInput(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite(categoryId, restaurantId, isFavourite), completion: completion)
     }
     
-    func fetchRestaurantImages(categoryId: String, restaurantId: String, completion: @escaping (Result<[String], CategoryError>) -> Void ){
+    func fetchRestaurantImages(categoryId: String, restaurantId: String, completion: @escaping (Result<[String], ServiceError>) -> Void ){
         let url = NearRestaurantEndpoint.getImagesByRestaurant(categoryId, restaurantId)
        return imageService.fetchData(apiEndpoint: url, completion: completion)
     }
     
-    func fetchRestaurantByCategoryId(categoryId: String, completion: @escaping (Result<[Restaurant], CategoryError>) -> Void) {
+    func fetchRestaurantByCategoryId(categoryId: String, completion: @escaping (Result<[Restaurant], ServiceError>) -> Void) {
         let url = NearRestaurantEndpoint.fetchRestaurantByCategoryId(categoryId)
         return restaurantService.fetchData(apiEndpoint: url, completion: completion)
     }

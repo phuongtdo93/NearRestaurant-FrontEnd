@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RestaurantInfo: Decodable {
+struct RestaurantInfo: Codable {
     let _id: String?
     let name: String?
     let address: String?
@@ -25,7 +25,7 @@ struct RestaurantInfo: Decodable {
     let longitude: Double?
 }
 
-struct Restaurant: Decodable {
+struct Restaurant: Codable {
     
     let categoryId: String
     let categoryName: String

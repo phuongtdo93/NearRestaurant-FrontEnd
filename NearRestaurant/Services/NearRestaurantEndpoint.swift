@@ -13,6 +13,7 @@ enum NearRestaurantEndpoint {
     static let restaurantsEndpoint: String = domain + "/restaurants"
     static let getAllTrending: String = domain + "/restaurants?isTrending=true"
     static let getTop5Restaurant: String = domain + "/restaurants?numOfTop=5"
+    static let reservations: String = domain + "/reservations"
     
     static let getImagesByRestaurant: (String, String) -> String = { categoryId, restaurantId in
         NearRestaurantEndpoint.domain + "/categories/\(categoryId)/restaurants/\(restaurantId)/images"
