@@ -26,19 +26,23 @@ final class UtilityServiceTest: XCTestCase {
         MockUrlSession.responseError = nil
         
     }
+    
+    struct TestCodableObject: Codable, Equatable {
+        let name: String
+    }
+    
 
     func testUtilityService_fetchGenericData_ReturnCorrectData() {
         //Arrange
-        let categories = [NearRestaurant.Category(id: "123", name: "909")]
         let expectedResultStr = "[{\"_id\":\"123\",\"name\":\"Category\"}]"
         MockUrlSession.responseData = expectedResultStr.data(using: .utf8)
         
-        let utilityService = UtilityService<NearRestaurant.Category>(urlSession: urlSession!)
+        let utilityService = NetworkingServiceToken<NearRestaurant.Category>(urlSession: urlSession!, token: "token")
         
         let expectedResult = Category(id: "123", name: "Category")
         let expectation = self.expectation(description: "Fetch function return data")
         //Act
-        utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.categoriesEndpoint) { result in
+        utilityService.fetchData(apiEndpoint: APIEndpoint.categoriesEndpoint) { result in
             //Assert
             switch result {
             case .success(let res):
@@ -57,7 +61,7 @@ final class UtilityServiceTest: XCTestCase {
         MockUrlSession.responseError = ServiceError.invalidUrl
         
         
-        let utilityService = UtilityService<NearRestaurant.Category>(urlSession: urlSession!)
+        let utilityService = NetworkingServiceToken<NearRestaurant.Category>(urlSession: urlSession!, token: "String")
         
         let expectation = self.expectation(description: "Fetch function return error")
         //Act
@@ -83,11 +87,11 @@ final class UtilityServiceTest: XCTestCase {
         let expectedResultStr = "[{\"id\":\"123\",\"na\":\"Category\"}]"
         MockUrlSession.responseData = expectedResultStr.data(using: .utf8)
         
-        let utilityService = UtilityService<NearRestaurant.Category>(urlSession: urlSession!)
+        let utilityService = NetworkingServiceToken<NearRestaurant.Category>(urlSession: urlSession!, token: "String")
         
         let expectation = self.expectation(description: "Fetch function returns error invalidDataStructure")
         //Act
-        utilityService.fetchData(apiEndpoint: NearRestaurantEndpoint.getTop5Restaurant) { result in
+        utilityService.fetchData(apiEndpoint: APIEndpoint.getTop5Restaurant) { result in
             //Assert
             switch result {
             case .success(let res):
@@ -106,11 +110,11 @@ final class UtilityServiceTest: XCTestCase {
         let expectedResult = "{\"success\":true}"
         MockUrlSession.responseData = expectedResult.data(using: .utf8)
         
-        let utilityService = UtilityService<Restaurant>(urlSession: urlSession!)
+        let utilityService = NetworkingServiceToken<Restaurant>(urlSession: urlSession!, token: "String")
         
         let expectation = self.expectation(description: "Set Favourite restaurant successfully")
         //Act
-        utilityService.patchDataNoInput(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", true)) { result in
+        utilityService.patchDataNoInput(apiEndpoint: APIEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", true)) { result in
             switch result {
             case .success(let res):
                 XCTAssertTrue(res)
@@ -129,11 +133,11 @@ final class UtilityServiceTest: XCTestCase {
         let expectedResult = "{\"success\":true}"
         MockUrlSession.responseData = expectedResult.data(using: .utf8)
         
-        let utilityService = UtilityService<Restaurant>(urlSession: urlSession!)
+        let utilityService = NetworkingServiceToken<Restaurant>(urlSession: urlSession!, token: "String")
         let expectation = self.expectation(description: "Set Not Favourite restaurant successfully")
         
         //Act
-        utilityService.patchDataNoInput(apiEndpoint: NearRestaurantEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", false)) { result in
+        utilityService.patchDataNoInput(apiEndpoint: APIEndpoint.setRestaurantFavourite("64a0b33eec6e7df2d85d75f5", "64a0b33eec6e7df2d85d75f6", false)) { result in
             switch result {
             case .success(let res):
                 XCTAssertTrue(res)

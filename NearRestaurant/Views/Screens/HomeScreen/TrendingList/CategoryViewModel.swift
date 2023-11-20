@@ -15,7 +15,7 @@ struct CategoryViewModel: Identifiable {
     
     
     var id: String {
-        category._id ?? ""
+        category._id
     }
     
 

@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
-import AppCenter
-import AppCenterCrashes
-import AppCenterAnalytics
+//import AppCenter
+//import AppCenterCrashes
+//import AppCenterAnalytics
 
 @main
 struct NearRestaurantApp: App {
     init(){
-        AppCenter.start(withAppSecret: "edde5548-5522-4029-9fcd-97a926f426dc", services:[
-          Analytics.self,
-          Crashes.self
-        ])
+//        AppCenter.start(withAppSecret: "edde5548-5522-4029-9fcd-97a926f426dc", services:[
+//          Analytics.self,
+//          Crashes.self
+//        ])
     }
     
     
