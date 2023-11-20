@@ -8,24 +8,8 @@
 import SwiftUI
 
 struct TopRatedScreen: View {
-//    @EnvironmentObject var trendingRestaurant: RestaurantWrappedViewModel
-    
     var body: some View {
         VStack {
-            HStack {
-                VStack (alignment: .leading, spacing: 5) {
-                    Text("Restaurants")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Text("New York, USA")
-                        .font(.callout)
-                        .foregroundColor(.gray)
-                    
-                }
-                Spacer()
-                UserIcon()
-            }
-            
             TrendingSquareView()
             TopRatedListView()
             

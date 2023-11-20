@@ -38,7 +38,6 @@ struct RestaurantImagesScreen: View {
                                 Image(uiImage: item)
                                 .resizable()
                                 .scaledToFill()
-//                            Image(systemName: "photo")
                         }
                     }
                 }
@@ -47,6 +46,7 @@ struct RestaurantImagesScreen: View {
         .onAppear() {
             restaurantImageVM.fetchImages()
         }
+        .navigationTitle(Text("Images"))
     }
 }
 

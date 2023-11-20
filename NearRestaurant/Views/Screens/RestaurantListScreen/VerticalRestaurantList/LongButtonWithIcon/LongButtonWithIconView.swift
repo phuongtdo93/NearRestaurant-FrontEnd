@@ -26,7 +26,7 @@ struct LongButtonWithIconView: View {
         }
         .padding(8)
         .overlay {
-            RoundedRectangle(cornerRadius: 30)
+            RoundedRectangle(cornerRadius: 5)
                 .stroke(.gray, lineWidth: 1)
         }
 

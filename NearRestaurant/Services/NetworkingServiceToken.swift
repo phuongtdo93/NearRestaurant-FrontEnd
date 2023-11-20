@@ -5,35 +5,25 @@
 import Foundation
 
 
-enum ServiceError: Error {
-    case invalidUrl
-    case invalidDataStructure
-    case notAvailableData
-}
-
-protocol UtilityProtocol {
-    associatedtype T
-    
-    func fetchData(apiEndpoint: String, completion: @escaping (Result<[T], ServiceError>) -> Void)
-    func pushData(apiEndpoint: String, input: T, completion: @escaping(Result<T?, ServiceError>) -> Void)
-    
-    func patchDataNoInput(apiEndpoint: String, completion: @escaping (Result<Bool, ServiceError>) -> Void)
-}
-
-struct UtilityService<T:Codable>: UtilityProtocol {
+struct NetworkingServiceToken<T:Codable>: FetchNetworkingProtocol, PushNetworkingProtocol {
     typealias T = T
     
-    
     private let urlSession: URLSession
+    private let token: String
     
-    init(urlSession: URLSession = .shared) {
+    init(urlSession: URLSession = .shared, token: String) {
         self.urlSession = urlSession
+        self.token = token
     }
     
     func fetchData(apiEndpoint: String, completion: @escaping (Result<[T], ServiceError>) -> Void)  {
         guard let url = URL(string: apiEndpoint) else {
             return completion(.failure(.invalidUrl))
         }
+        
+        var urlRequset = URLRequest(url: url)
+        urlRequset.addValue(token, forHTTPHeaderField: "authorization")
+        
         self.urlSession.dataTask(with: url) { data, res, error in
             guard let data, error == nil else {
                 return completion(.failure(ServiceError.notAvailableData))
@@ -48,7 +38,7 @@ struct UtilityService<T:Codable>: UtilityProtocol {
         }.resume()
     }
 
-    func pushData(apiEndpoint: String, input: T, completion: @escaping(Result<T?, ServiceError>) -> Void) {
+    func pushData(apiEndpoint: String,  input: T, completion: @escaping(Result<T?, ServiceError>) -> Void) {
         guard let url = URL(string: apiEndpoint) else {
             return completion(.failure(.invalidUrl))
         }
@@ -57,6 +47,7 @@ struct UtilityService<T:Codable>: UtilityProtocol {
         urlRequest.httpBody = try? JSONEncoder().encode(input)
         urlRequest.httpMethod = "PUSH"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue(token, forHTTPHeaderField: "authorization")
 
         self.urlSession.dataTask(with: urlRequest) { data, response, err in
             guard let data, err == nil else {
@@ -81,6 +72,7 @@ struct UtilityService<T:Codable>: UtilityProtocol {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "PATCH"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addValue(token, forHTTPHeaderField: "authorization")
         
         self.urlSession.dataTask(with: urlRequest) { data, response, err in
             guard let data, err == nil else {
