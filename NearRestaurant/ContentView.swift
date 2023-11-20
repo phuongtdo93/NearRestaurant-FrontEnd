@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
-//import AppCenter
-//import AppCenterCrashes
-//import AppCenterAnalytics
+
 
 struct ContentView: View {
     
     var body: some View {
-        HomeScreen()
+        NavigationStack {
+//            LoginScreen()
+//            SignUpScreen()
+            HomeScreen()
+        }
     }
 }
 

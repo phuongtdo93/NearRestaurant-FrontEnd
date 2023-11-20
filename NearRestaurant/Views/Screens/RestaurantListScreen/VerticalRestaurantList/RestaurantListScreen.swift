@@ -21,8 +21,9 @@ struct RestaurantListScreen: View {
             HStack {
               LongButtonWithIconView(text: "SORT BY", icon: "text.alignleft")
               LongButtonWithIconView(text: "FILTERS", icon: "slider.horizontal.3")
-            }
-            ScrollView(.vertical) {
+            }.padding(EdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0))
+            
+            ScrollView() {
                 LazyVStack {
                     ForEach(verticalRestaurantListVM.restaurants, id: \.id) { restaurant in
                         RestaurantItemHorizontalView(restaurantVM: restaurant)
@@ -30,10 +31,11 @@ struct RestaurantListScreen: View {
                 }
             }
             
-        }.padding()
+        }
         .onAppear() {
             verticalRestaurantListVM.fetchRestaurantByCategoryId(categoryId: categoryId)
         }
+        .navigationTitle(Text("Restaurant list"))
     }
 }
 

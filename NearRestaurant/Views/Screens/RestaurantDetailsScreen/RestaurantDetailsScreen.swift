@@ -9,6 +9,13 @@ import SwiftUI
 
 struct RestaurantDetailsScreen: View {
     @ObservedObject var restaurantVM: RestaurantWrappedViewModel
+    @ObservedObject var userStatusValidationVM: LoginNavigationViewModel
+    
+    
+    init(restaurantVM: RestaurantWrappedViewModel, userStatusValidationVM: LoginNavigationViewModel) {
+        self.restaurantVM = restaurantVM
+        self.userStatusValidationVM = userStatusValidationVM
+    }
     
     var body: some View {
             VStack {
@@ -40,19 +47,28 @@ struct RestaurantDetailsScreen: View {
             .ignoresSafeArea()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        CreateReservationScreen()
-                            .environmentObject(restaurantVM)
+                    
+                    Button {
+                        userStatusValidationVM.checkUserStatus()
                     } label: {
                         Text("BOOKING")
                             .foregroundColor(.white)
                             .font(.custom("Arial", size: 13))
                             .fontWeight(.bold)
-                    }
-                    .padding(5)
-                    .background(.red)
-                    .cornerRadius(20)
+                    }.padding(5)
+                        .background(.red)
+                        .cornerRadius(20)
+                        
+                    
                 }
+            }
+            
+            .navigationDestination(isPresented: $userStatusValidationVM.destinateNavigationLinkActive) {
+                CreateReservationScreen()
+                    .environmentObject(restaurantVM)
+            }
+            .navigationDestination(isPresented: $userStatusValidationVM.loginNavigationLinkActive) {
+                LoginScreen()
             }
     }
         
@@ -60,6 +76,6 @@ struct RestaurantDetailsScreen: View {
 
 struct RestaurantDetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantDetailsScreen(restaurantVM: RestaurantWrappedViewModel(restaurant: RestaurantViewModel(restaurant: Restaurant.previewRestaurant())))
+        RestaurantDetailsScreen(restaurantVM: RestaurantWrappedViewModel(restaurant: RestaurantViewModel(restaurant: Restaurant.previewRestaurant())), userStatusValidationVM: LoginNavigationViewModel(userStatusValidationService: UserStatusValidation()))
     }
 }

@@ -12,6 +12,7 @@ enum CustomColor {
     static let gray1: String = "EEEEEF"
     static let mainRed: String = "CD5939"
     static let moreRed: String = "dd4f2c"
+    static let lighterRed: String = "7e2914"
     
 }
 

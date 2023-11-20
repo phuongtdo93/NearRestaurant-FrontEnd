@@ -9,13 +9,16 @@ import XCTest
 @testable import NearRestaurant
 
 final class UtilityPushFuncTest: XCTestCase {
-    var config: URLSessionConfiguration?
-    var urlSession: URLSession?
+    var config: URLSessionConfiguration!
+    var urlSession: URLSession!
+    var utilitiService: NetworkingServiceToken<TestCodableObject>!
+    
     
     override func setUp() {
         config = URLSessionConfiguration.ephemeral
         config?.protocolClasses = [MockUrlSession.self]
         urlSession = URLSession(configuration: config!)
+        utilitiService = NetworkingServiceToken<TestCodableObject>(urlSession: urlSession!, token: "token")
     }
     
     override func tearDown() {
@@ -23,6 +26,7 @@ final class UtilityPushFuncTest: XCTestCase {
         config = nil
         MockUrlSession.responseData = nil
         MockUrlSession.responseError = nil
+        utilitiService = nil
     }
     
     struct TestCodableObject: Codable, Equatable {
@@ -34,7 +38,7 @@ final class UtilityPushFuncTest: XCTestCase {
         //Arrage
         MockUrlSession.responseError = ServiceError.invalidUrl
         
-        let utiliTiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
+        let utiliTiService = NetworkingServiceToken<TestCodableObject>(urlSession: urlSession!, token: "")
         let expectation = self.expectation(description: "PUSH reservations is failed because of invalidUrl")
         
         //Act
@@ -55,11 +59,11 @@ final class UtilityPushFuncTest: XCTestCase {
     
     func testPushData_notAvailableData_ReturnFailure(){
         MockUrlSession.responseError = ServiceError.notAvailableData
-        
-        let utilitiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
+//        
+//        let utilitiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
         let expectaion = self.expectation(description: "PUSH reservations is failed because of cannotEncodeData")
         
-        utilitiService.pushData(apiEndpoint: NearRestaurantEndpoint.reservations, input: TestCodableObject(name: "")) { result in
+        utilitiService.pushData(apiEndpoint: APIEndpoint.reservations, input: TestCodableObject(name: "")) { result in
             //Assert
             switch result {
             case .success(_):
@@ -76,10 +80,10 @@ final class UtilityPushFuncTest: XCTestCase {
     func testPushData_cannotDecodeResult_ReturnFailure(){
         MockUrlSession.responseData = nil
         
-        let utilitiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
+//        let utilitiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
         let expectaion = self.expectation(description: "PUSH reservations is failed because of cannotDecodeResult")
         
-        utilitiService.pushData(apiEndpoint: NearRestaurantEndpoint.reservations, input: TestCodableObject(name: "")) { result in
+        utilitiService.pushData(apiEndpoint: APIEndpoint.reservations, input: TestCodableObject(name: "")) { result in
             switch result {
             case .success(_):
                 XCTAssertTrue(true)
@@ -95,12 +99,12 @@ final class UtilityPushFuncTest: XCTestCase {
     func testPushData_validInput_ResultSuccess(){
         let expectedResult = "{\"name\":\"Category\"}"
         MockUrlSession.responseData = expectedResult.data(using: .utf8)
-        
-        let utilitiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
+//        
+//        let utilitiService = UtilityService<TestCodableObject>(urlSession: urlSession!)
         let expectaion = self.expectation(description: "PUSH reservations success")
         
         let objInput = TestCodableObject(name: "Category")
-        utilitiService.pushData(apiEndpoint: NearRestaurantEndpoint.reservations, input: objInput) { result in
+        utilitiService.pushData(apiEndpoint: APIEndpoint.reservations, input: objInput) { result in
             switch result {
             case .success(let res):
                 XCTAssertEqual(res, objInput)

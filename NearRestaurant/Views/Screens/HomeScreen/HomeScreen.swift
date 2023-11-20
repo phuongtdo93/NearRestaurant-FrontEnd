@@ -10,7 +10,6 @@ import AppCenterCrashes
 
 struct HomeScreen: View {
     var body: some View {
-        NavigationView {
             VStack(alignment: .leading) {
                 HStack {
                     VStack (alignment: .leading) {
@@ -30,14 +29,15 @@ struct HomeScreen: View {
                     
                 Spacer()
             }.padding()
-                .onAppear() {
-                    if Crashes.hasCrashedInLastSession {
-                        print ("Sorry an error occurs")
-                    }
+            .onAppear() {
+                if Crashes.hasCrashedInLastSession {
+                    print ("Sorry an error occurs")
                 }
+            }
+            .navigationBarBackButtonHidden(true)
         }
         
-    }
+        
 }
 
 struct HomeScreen_Previews: PreviewProvider {

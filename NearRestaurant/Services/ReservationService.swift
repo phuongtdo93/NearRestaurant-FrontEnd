@@ -13,14 +13,14 @@ protocol ReservationProtocol {
 }
 
 struct ReservationService: ReservationProtocol {
-    let utilityService = UtilityService<Reservation>()
+    let utilityService = NetworkingServiceToken<Reservation>(token: "String")
     
     static let instance = ReservationService()
     
     private init() { }
     
     func createReservation(reservation: Reservation, completion: @escaping ((Result<Reservation?, ServiceError>) -> Void)) {
-        utilityService.pushData(apiEndpoint: NearRestaurantEndpoint.reservations, input: reservation, completion: completion)
+        utilityService.pushData(apiEndpoint: APIEndpoint.reservations, input: reservation, completion: completion)
     }
     
     

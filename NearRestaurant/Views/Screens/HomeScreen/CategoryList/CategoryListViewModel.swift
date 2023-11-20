@@ -10,6 +10,7 @@ import Foundation
 class CategoryListViewModel: ObservableObject {
     @Published var categoryList = [CategoryViewModel]()
     private let restaurantService: RestaurantServiceProtocol
+    private let logging = HandleLogging.instance
     
     init(restaurantService: RestaurantServiceProtocol) {
         self.restaurantService = restaurantService
@@ -23,7 +24,7 @@ class CategoryListViewModel: ObservableObject {
                 case .success(let data):
                     self.categoryList = data.map(CategoryViewModel.init)
                 case .failure(let err):
-                    print("CategoryListViewModel \(err)")
+                    self.logging.error("CategoryListViewModel - fetchCategory failed - \(err)")
                 }
             }
         }

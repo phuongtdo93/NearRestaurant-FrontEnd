@@ -20,7 +20,7 @@ struct RestaurantItemVerticalView: View {
     
     var body: some View {
         NavigationLink {
-            RestaurantDetailsScreen(restaurantVM: restaurantVM)
+            RestaurantDetailsScreen(restaurantVM: restaurantVM, userStatusValidationVM: LoginNavigationViewModel(userStatusValidationService: UserStatusValidation()))
         } label: {
             VStack (alignment: .leading, spacing: 7) {
                 ZStack(alignment: .top) {

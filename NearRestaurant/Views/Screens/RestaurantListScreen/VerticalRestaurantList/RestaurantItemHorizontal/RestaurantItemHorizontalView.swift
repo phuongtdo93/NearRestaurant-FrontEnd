@@ -15,7 +15,7 @@ struct RestaurantItemHorizontalView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                CustomImage(urlString: restaurantVM.image, width: UIScreen.main.bounds.width, height: 200)
+                CustomImage(urlString: restaurantVM.image, height: 200)
                 HStack {
                     InfoTag(showStar: true, textStr: restaurantVM.rate)
                     Spacer()
@@ -35,8 +35,9 @@ struct RestaurantItemHorizontalView: View {
                 }
                 Spacer()
                 InfoTag(textStr: restaurantVM.distance, showStroke: true)
-            }
+            }.padding(EdgeInsets(top: 0, leading: 15, bottom: 20, trailing: 15))
         }
+        .frame(width: UIScreen.main.bounds.width)
         .onAppear(){
             print("isFavourite: \(restaurantVM.isFavourite)")
             isFavourite = restaurantVM.isFavourite
