@@ -9,23 +9,28 @@ import Foundation
 import SwiftUI
 import Combine
 
-enum UserAuthorizationStatus {
+enum UserAuthorizationStatus: Error {
     case new,  success, failed
 }
 
 class LoginViewModel: ObservableObject {
     @Published var email: String = "thao@gmail.com"
-    @Published var password: String = "12345678"
+    @Published var password: String = "12345"
     
     @Published var isValidUserName: UserAuthorizationStatus = .new
     @Published var isValidPassword: UserAuthorizationStatus = .new
     @Published var loginStatus: Bool = false
+    @Published var loginResponseMessage = ""
     
     private var cancellables = Set<AnyCancellable>()
-    let authorizationService: UserAuthorizationProtocol
+    private let logging = HandleLogging.instance
     
-    init (authorizationService: UserAuthorizationProtocol) {
+    let authorizationService: UserAuthorizationProtocol
+    private let keychainWrapper: KeychainWrapperProtocol
+    
+    init (authorizationService: UserAuthorizationProtocol, keychainWrapper: KeychainWrapperProtocol) {
         self.authorizationService = authorizationService
+        self.keychainWrapper = keychainWrapper
     }
     
     func checkValidUserName() {
@@ -66,12 +71,21 @@ class LoginViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         switch result {
                         case .success(let res):
-                            self.loginStatus = true
-                            print("token: \(res?.token)")
-//                            UserDefaults.standard.set(res, forKey: "token")
-//                            print("My token is \(UserDefaults.standard.string(forKey: "token"))")
-                            continuation.resume(returning: true)
+                            if let res {
+                                if res.success {
+                                    self.loginStatus = true
+                                    try? self.keychainWrapper.storeUserAuthenticateFor(account: "KWRestaurantNearMe", token: res.token)
+                                    continuation.resume(returning: true)
+                                }
+                                else {
+                                    self.loginResponseMessage = res.token
+                                    self.logging.error("Logging failed with message: \(res.token)")
+                                    continuation.resume(throwing: UserAuthorizationStatus.failed)
+                                }
+                            }
+                            
                         case .failure(let err ):
+                            self.loginResponseMessage = err.localizedDescription
                             continuation.resume(throwing: err)
                         }
                     }

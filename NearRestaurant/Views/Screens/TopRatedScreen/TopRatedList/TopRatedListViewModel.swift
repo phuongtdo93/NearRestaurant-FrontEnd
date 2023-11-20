@@ -12,6 +12,7 @@ class TopRatedListViewModel: ObservableObject {
     let delayInSeconds = 0
     
     private var restaurantService: RestaurantServiceProtocol
+    private let logging = HandleLogging.instance
     
     init(restaurantService: RestaurantServiceProtocol) {
         self.restaurantService = restaurantService
@@ -24,7 +25,7 @@ class TopRatedListViewModel: ObservableObject {
                 case .success(let data):
                     self.topRatedListVM = data.map(RestaurantViewModel.init)
                 case .failure(let err):
-                    print("Error fetchTop5Restaurant \(err)")
+                    self.logging.error("TopRatedListViewModel - fetchTop5Restaurant failed - \(err)")
                 }
             }
         }

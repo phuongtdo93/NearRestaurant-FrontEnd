@@ -16,14 +16,11 @@ class RestaurantListViewModel: ObservableObject {
     init(restaurantService: RestaurantServiceProtocol){
         self.restaurantService = restaurantService
         fetchRestaurant()
-        handleLogging.info("Hello this is my application")
-            
     }
     
     func fetchRestaurant(){
         restaurantService.fetchRestaurant { result in
             DispatchQueue.main.async {
-                print(result)
                 switch result {
                 case .success(let data):
                     self.restaurantList = data.map(RestaurantViewModel.init).map(RestaurantWrappedViewModel.init)

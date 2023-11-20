@@ -64,7 +64,6 @@ struct PushServiceNoToken<T: Codable, U: Decodable>: PushNetworkingProtocol {
             }
 
             do {
-                print(data)
                 let decodedData = try JSONDecoder().decode(U.self, from: data)
                 return completion(.success(decodedData))
             } catch {

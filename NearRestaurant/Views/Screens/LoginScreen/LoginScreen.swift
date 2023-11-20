@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @StateObject var user = LoginViewModel(authorizationService: UserAuthorizationService.instance)
+    @StateObject var user = LoginViewModel(authorizationService: UserAuthorizationService.instance, keychainWrapper: KeychainWrapper())
     
     var checkValidForm: Bool {
         user.isValidPassword == .success &&
@@ -60,7 +60,6 @@ struct LoginScreen: View {
                         Task {
                             await user.login()
                         }
-                        
                     } label: {
                         Text("Login")
                             .foregroundColor(.black)
@@ -69,7 +68,7 @@ struct LoginScreen: View {
                             .background(Color(.white))
                             .cornerRadius(10)
                     }
-//                    .disabled(!checkValidForm)
+                    .disabled(!checkValidForm)
                     
                     Text("Have no account?")
                         .frame(width: 280, height: 40)
