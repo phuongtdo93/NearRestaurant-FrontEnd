@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct SignUpScreen: View {
-    @StateObject var user = SignUpViewModel(authorizationService: UserAuthorizationService.instance)
+    @StateObject var user = SignUpViewModel(authorizationService: UserAuthorizationService.instance, keychainWrapper: KeychainWrapper())
     
     var checkFormIsValid: Bool {
         return user.isValidUserName == .success &&
@@ -91,7 +91,7 @@ struct SignUpScreen: View {
                        .background(.white)
                        .cornerRadius(10)
                }
-//               .disabled(!checkFormIsValid)
+               .disabled(!checkFormIsValid)
                .padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                
                Text("Have an account?")

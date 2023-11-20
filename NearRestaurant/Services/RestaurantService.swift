@@ -21,7 +21,6 @@ struct RestaurantService: RestaurantServiceProtocol {
     
     private init(){
         let token: String = ""
-        print("Init single RestaurantService")
         categoryService = FetchServiceNoToken<Category>()
         restaurantService = NetworkingServiceToken<Restaurant>(token: token)
         imageService = FetchServiceNoToken<RestaurantImage>()

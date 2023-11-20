@@ -77,6 +77,8 @@
 		1468586D2AC76318003747B8 /* RestaurantAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468586C2AC76318003747B8 /* RestaurantAddress.swift */; };
 		146858702AC8DFBA003747B8 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468586F2AC8DFBA003747B8 /* ContactViewModel.swift */; };
 		1474F1CC2B0AFB100068D37A /* FetchNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CB2B0AFB100068D37A /* FetchNetworking.swift */; };
+		1474F1CE2B0BCC750068D37A /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */; };
+		1474F1D02B0BF4E00068D37A /* LoginNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CF2B0BF4E00068D37A /* LoginNavigationViewModel.swift */; };
 		149E06B62ABBE3C7005E6C6B /* HandleLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E06B52ABBE3C7005E6C6B /* HandleLogging.swift */; };
 		149E06B82ABBE6A5005E6C6B /* LikeIconDishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E06B72ABBE6A5005E6C6B /* LikeIconDishViewModel.swift */; };
 		14B0A70F2A4C53F0006BDE0A /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0A70E2A4C53F0006BDE0A /* ExtensionColor.swift */; };
@@ -192,6 +194,8 @@
 		1468586F2AC8DFBA003747B8 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		1474F1C62B068C6C0068D37A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1474F1CB2B0AFB100068D37A /* FetchNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworking.swift; sourceTree = "<group>"; };
+		1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		1474F1CF2B0BF4E00068D37A /* LoginNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewModel.swift; sourceTree = "<group>"; };
 		149E06B52ABBE3C7005E6C6B /* HandleLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleLogging.swift; sourceTree = "<group>"; };
 		149E06B72ABBE6A5005E6C6B /* LikeIconDishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeIconDishViewModel.swift; sourceTree = "<group>"; };
 		14B0A70E2A4C53F0006BDE0A /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
@@ -308,6 +312,7 @@
 			children = (
 				143782642AE8BE36003325D9 /* LoginViewModel.swift */,
 				143782562AE861BE003325D9 /* LoginScreen.swift */,
+				1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				144682FA2A47730F003BABBA /* RestaurantDetailsScreen.swift */,
+				1474F1CF2B0BF4E00068D37A /* LoginNavigationViewModel.swift */,
 				14B61C052AA483DF005BA587 /* Banner */,
 				14B61C062AA483EC005BA587 /* ContactInfo */,
 			);
@@ -976,6 +982,7 @@
 				14D1278D2AE5DDE1002CC421 /* ReservationService.swift in Sources */,
 				144AF56A2AE0014900543700 /* RestaurantListScreenViewModel.swift in Sources */,
 				144AF5732AE042A500543700 /* RestaurantFavourite.swift in Sources */,
+				1474F1CE2B0BCC750068D37A /* KeychainWrapper.swift in Sources */,
 				1422942B2A4C66B5003D32D0 /* RestaurantItemView.swift in Sources */,
 				1422947D2A542C8E003D32D0 /* TopRatedListViewModel.swift in Sources */,
 				142294292A4C5CA7003D32D0 /* TrendingSquareView.swift in Sources */,
@@ -1002,6 +1009,7 @@
 				142294772A542511003D32D0 /* TrendingListViewModel.swift in Sources */,
 				142294392A4EDBA8003D32D0 /* LongButtonWithIconView.swift in Sources */,
 				1422942D2A4D9FF4003D32D0 /* TopRatedScreen.swift in Sources */,
+				1474F1D02B0BF4E00068D37A /* LoginNavigationViewModel.swift in Sources */,
 				142294682A50D81F003D32D0 /* CategoryListView.swift in Sources */,
 				1437825D2AE87313003325D9 /* ForgetPasswordScreen.swift in Sources */,
 				1422947F2A5431C4003D32D0 /* RestaurantListScreen.swift in Sources */,
