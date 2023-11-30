@@ -11,9 +11,16 @@ struct TrendingSquareView: View {
     @EnvironmentObject var restaurantVM: RestaurantWrappedViewModel
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            CustomImage(urlString: restaurantVM.restaurant.image, width: UIScreen.main.bounds.size.width, height: .infinity)
-            VStack(alignment: .leading, spacing: 5) {
+        ZStack(alignment: .top) {
+            CustomImage(urlString: restaurantVM.restaurant.image, width: UIScreen.main.bounds.size.width, height: 300)
+            
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.gray.opacity(0.5))
+            .frame(width: UIScreen.main.bounds.width, height: 150)
+            
+            
+            
+            VStack(alignment: .listRowSeparatorLeading, spacing: 5) {
                 Text("TRENDING")
                     .foregroundColor(.white)
                     .font(.headline)
@@ -27,8 +34,9 @@ struct TrendingSquareView: View {
                     .animation(.easeInOut)
                 Spacer()
             }
+            
             .padding(EdgeInsets(top: 15, leading: 10, bottom: 10, trailing: 15))
-        }.frame(width: .infinity, height: 300)
+        }.frame(width: UIScreen.main.bounds.width, height: 300)
         
     }
 }
