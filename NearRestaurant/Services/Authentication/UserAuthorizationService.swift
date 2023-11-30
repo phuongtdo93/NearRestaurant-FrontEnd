@@ -38,17 +38,3 @@ struct UserAuthorizationService: UserAuthorizationProtocol {
     
 }
 
-protocol UserStatusValidationProtocol {
-    func validateUserLogging() -> String
-}
-
-struct UserStatusValidation: UserStatusValidationProtocol {
-    
-    func validateUserLogging() -> String {
-        let kcw = KeychainWrapper()
-        if let token = try? kcw.getUserAuthenticateFor(account: "KWRestaurantNearMe") {
-            return token
-        }
-        return ""
-    }
-}

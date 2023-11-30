@@ -79,6 +79,8 @@
 		1474F1CC2B0AFB100068D37A /* FetchNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CB2B0AFB100068D37A /* FetchNetworking.swift */; };
 		1474F1CE2B0BCC750068D37A /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */; };
 		1474F1D02B0BF4E00068D37A /* LoginNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CF2B0BF4E00068D37A /* LoginNavigationViewModel.swift */; };
+		1474F1D32B0D9DA60068D37A /* UserStatusValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1D22B0D9DA60068D37A /* UserStatusValidation.swift */; };
+		1474F1D52B0D9EF60068D37A /* BiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1D42B0D9EF60068D37A /* BiometricAuthentication.swift */; };
 		149E06B62ABBE3C7005E6C6B /* HandleLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E06B52ABBE3C7005E6C6B /* HandleLogging.swift */; };
 		149E06B82ABBE6A5005E6C6B /* LikeIconDishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149E06B72ABBE6A5005E6C6B /* LikeIconDishViewModel.swift */; };
 		14B0A70F2A4C53F0006BDE0A /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0A70E2A4C53F0006BDE0A /* ExtensionColor.swift */; };
@@ -196,6 +198,8 @@
 		1474F1CB2B0AFB100068D37A /* FetchNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworking.swift; sourceTree = "<group>"; };
 		1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		1474F1CF2B0BF4E00068D37A /* LoginNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigationViewModel.swift; sourceTree = "<group>"; };
+		1474F1D22B0D9DA60068D37A /* UserStatusValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusValidation.swift; sourceTree = "<group>"; };
+		1474F1D42B0D9EF60068D37A /* BiometricAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthentication.swift; sourceTree = "<group>"; };
 		149E06B52ABBE3C7005E6C6B /* HandleLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleLogging.swift; sourceTree = "<group>"; };
 		149E06B72ABBE6A5005E6C6B /* LikeIconDishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeIconDishViewModel.swift; sourceTree = "<group>"; };
 		14B0A70E2A4C53F0006BDE0A /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
@@ -285,7 +289,7 @@
 				146858672AC4B671003747B8 /* ImageService.swift */,
 				145525652AD4E7BA0014BF2F /* APIEndpoint.swift */,
 				14D1278C2AE5DDE1002CC421 /* ReservationService.swift */,
-				1437826A2AE9FAE0003325D9 /* UserAuthorizationService.swift */,
+				1474F1D12B0D9C460068D37A /* Authentication */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -312,7 +316,6 @@
 			children = (
 				143782642AE8BE36003325D9 /* LoginViewModel.swift */,
 				143782562AE861BE003325D9 /* LoginScreen.swift */,
-				1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -453,6 +456,17 @@
 				144AF5742AE042BD00543700 /* DishFavourite.swift */,
 			);
 			path = LikeIcon;
+			sourceTree = "<group>";
+		};
+		1474F1D12B0D9C460068D37A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1437826A2AE9FAE0003325D9 /* UserAuthorizationService.swift */,
+				1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */,
+				1474F1D22B0D9DA60068D37A /* UserStatusValidation.swift */,
+				1474F1D42B0D9EF60068D37A /* BiometricAuthentication.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		14B0A70D2A4C4EF2006BDE0A /* Screens */ = {
@@ -1001,9 +1015,11 @@
 				145525682AD4E7E20014BF2F /* RestaurantServiceProtocol.swift in Sources */,
 				142294332A4E7462003D32D0 /* CategoryView.swift in Sources */,
 				143782602AE8745F003325D9 /* ResetPasswordView.swift in Sources */,
+				1474F1D52B0D9EF60068D37A /* BiometricAuthentication.swift in Sources */,
 				14BB01242A47554E00928C38 /* ContentView.swift in Sources */,
 				14BB01222A47554E00928C38 /* NearRestaurantApp.swift in Sources */,
 				149E06B82ABBE6A5005E6C6B /* LikeIconDishViewModel.swift in Sources */,
+				1474F1D32B0D9DA60068D37A /* UserStatusValidation.swift in Sources */,
 				1422944A2A4F43E4003D32D0 /* MenuScreen.swift in Sources */,
 				142294352A4E793E003D32D0 /* HomeScreen.swift in Sources */,
 				142294772A542511003D32D0 /* TrendingListViewModel.swift in Sources */,

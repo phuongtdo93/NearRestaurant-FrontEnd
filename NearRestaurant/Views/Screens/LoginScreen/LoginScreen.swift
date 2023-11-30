@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @StateObject var user = LoginViewModel(authorizationService: UserAuthorizationService.instance, keychainWrapper: KeychainWrapper())
+    @StateObject var user = LoginViewModel(authorizationService: UserAuthorizationService.instance, userStatusValidation: UserStatusValidation())
+    
+   @StateObject var biometricAuthenticate = BiometricAuthentication()
     
     var checkValidForm: Bool {
         user.isValidPassword == .success &&
@@ -92,6 +94,9 @@ struct LoginScreen: View {
                     }
                 }.padding(EdgeInsets(top: 30, leading: 0, bottom: 0, trailing: 0))
             }
+        }
+        .onAppear(){
+            biometricAuthenticate.tryBiometricAuthentication()
         }
         .navigationDestination(isPresented: $user.loginStatus, destination: {
             HomeScreen()

@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct SignUpScreen: View {
-    @StateObject var user = SignUpViewModel(authorizationService: UserAuthorizationService.instance, keychainWrapper: KeychainWrapper())
+    @StateObject var user = SignUpViewModel(authorizationService: UserAuthorizationService.instance, userStatusValidation: UserStatusValidation())
     
     var checkFormIsValid: Bool {
         return user.isValidUserName == .success &&

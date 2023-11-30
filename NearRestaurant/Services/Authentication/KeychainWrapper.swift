@@ -72,4 +72,39 @@ struct KeychainWrapper: KeychainWrapperProtocol {
         }
         return value
     }
+    
+    func updateUserAuthenticationFor(account: String, token: String) throws {
+        guard let tokenData = token.data(using: .utf8) else {
+            logging.error("KeychainWrapper - updateUserAuthenticationFor - cannot convert token to data")
+            return
+        }
+        
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: account
+        ]
+        
+        let attributes: [String: Any] = [kSecValueData as String: tokenData]
+        
+        let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
+        guard status != errSecItemNotFound else {
+            throw KeychainErrorType.itemNotFound
+        }
+        guard status == errSecSuccess else {
+            throw KeychainErrorType.servicesError
+        }
+    }
+    
+    func deleteUserAuthencationFor(account: String) throws {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: account
+            ]
+        let status = SecItemDelete(query as CFDictionary)
+        
+        guard status == errSecSuccess || status == errSecItemNotFound else {
+            throw KeychainErrorType.servicesError
+        }
+        
+    }
 }

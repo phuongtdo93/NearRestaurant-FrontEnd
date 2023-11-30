@@ -26,11 +26,11 @@ class LoginViewModel: ObservableObject {
     private let logging = HandleLogging.instance
     
     let authorizationService: UserAuthorizationProtocol
-    private let keychainWrapper: KeychainWrapperProtocol
+    private let userStatusValidation: UserStatusValidationProtocol
     
-    init (authorizationService: UserAuthorizationProtocol, keychainWrapper: KeychainWrapperProtocol) {
+    init (authorizationService: UserAuthorizationProtocol, userStatusValidation: UserStatusValidationProtocol) {
         self.authorizationService = authorizationService
-        self.keychainWrapper = keychainWrapper
+        self.userStatusValidation = userStatusValidation
     }
     
     func checkValidUserName() {
@@ -74,7 +74,7 @@ class LoginViewModel: ObservableObject {
                             if let res {
                                 if res.success {
                                     self.loginStatus = true
-                                    try? self.keychainWrapper.storeUserAuthenticateFor(account: "KWRestaurantNearMe", token: res.token)
+                                    self.userStatusValidation.saveUserToken(token: res.token)
                                     continuation.resume(returning: true)
                                 }
                                 else {
