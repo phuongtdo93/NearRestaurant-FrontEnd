@@ -19,10 +19,6 @@ struct RestaurantItemHorizontalView: View {
                 HStack {
                     InfoTag(showStar: true, textStr: restaurantVM.rate)
                     Spacer()
-                    LikeIcon(showStroke: true,
-                             padding: 10, isFavourite: $isFavourite,
-                             setFavouriteProtocol: setFavouriteProtocol,
-                             restaurantFavourite: RestaurantFavourite(categoryId: restaurantVM.categoryId, restaurantId: restaurantVM.id))
                 }.padding()
             }
             HStack(alignment: .top) {
@@ -39,7 +35,6 @@ struct RestaurantItemHorizontalView: View {
         }
         .frame(width: UIScreen.main.bounds.width)
         .onAppear(){
-            print("isFavourite: \(restaurantVM.isFavourite)")
             isFavourite = restaurantVM.isFavourite
         }
     }

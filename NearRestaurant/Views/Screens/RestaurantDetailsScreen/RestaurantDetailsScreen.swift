@@ -26,50 +26,9 @@ struct RestaurantDetailsScreen: View {
                     .multilineTextAlignment(.leading)
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 ContactInfoView(contact: restaurantVM.restaurant.contactInformation) .padding(10)
-                List {
-                    NavigationLink {
-                        MenuScreen()
-                    } label: {
-                        Text("Menu")
-                    }
-                    NavigationLink {
-
-                    } label: {
-                        Text("Reviews")
-                    }
-                    NavigationLink {
-                        RestaurantImagesScreen(categoryId: restaurantVM.restaurant.categoryId, restaurantId: restaurantVM.restaurant.id)
-                    } label: {
-                        Text("Images")
-                    }
-                }
+                Spacer()
             }
             .ignoresSafeArea()
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    
-                    Button {
-                        userStatusValidationVM.checkUserStatus()
-                    } label: {
-                        Text("BOOKING")
-                            .foregroundColor(.white)
-                            .font(.custom("Arial", size: 13))
-                            .fontWeight(.bold)
-                    }.padding(5)
-                        .background(.red)
-                        .cornerRadius(20)
-                        
-                    
-                }
-            }
-            
-            .navigationDestination(isPresented: $userStatusValidationVM.destinateNavigationLinkActive) {
-                CreateReservationScreen()
-                    .environmentObject(restaurantVM)
-            }
-            .navigationDestination(isPresented: $userStatusValidationVM.loginNavigationLinkActive) {
-                LoginScreen()
-            }
     }
         
 }

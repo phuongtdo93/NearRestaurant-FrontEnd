@@ -28,7 +28,6 @@ struct TrendingRectangleView: View {
                     Text(restaurantVM.restaurant.shortDescriptionCut)
                         .font(.caption)
                         .foregroundColor(.white)
-                        .frame(width: 150, height: .infinity)
                     Spacer()
                     NavigationLink {
                         TopRatedScreen()

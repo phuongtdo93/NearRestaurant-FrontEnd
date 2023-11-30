@@ -29,8 +29,6 @@ struct RestaurantItemVerticalView: View {
                     HStack(alignment: .top) {
                         InfoTag(showStar: true, textStr: "3.4", showStroke: true)
                         Spacer()
-                        LikeIcon(showStroke: false, padding: 10, isFavourite: $isFavourite, setFavouriteProtocol: setFavouriteProtocol, restaurantFavourite:   RestaurantFavourite(categoryId: restaurantVM.restaurant.categoryId, restaurantId: restaurantVM.restaurant.id))
-                            
                     }.padding(10)
                 }
                 Text(restaurantVM.restaurant.name)

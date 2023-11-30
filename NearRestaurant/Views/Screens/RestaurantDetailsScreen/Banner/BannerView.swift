@@ -34,7 +34,6 @@ struct BannerView: View {
                         InfoTag(textStr: item)
                     }
                     Spacer()
-                    LikeIcon(showStroke: true, padding: 10, isFavourite: $isFavourite, setFavouriteProtocol: setFavouriteProtocol, restaurantFavourite: RestaurantFavourite(categoryId: "", restaurantId: ""))
                 }
                 }
             .padding(10)

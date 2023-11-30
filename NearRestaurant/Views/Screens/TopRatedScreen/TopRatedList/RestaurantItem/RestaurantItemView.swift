@@ -27,7 +27,7 @@ struct RestaurantItemView: View {
             }
             Spacer()
             VStack (spacing: 20) {
-                LikeIcon(showStroke: true, padding: 10, isFavourite: $isFavourite, setFavouriteProtocol: setFavouriteProtocol, restaurantFavourite: RestaurantFavourite(categoryId: restaurantVM.categoryId, restaurantId: restaurantVM.id))
+                Spacer()
                 InfoTag(textStr: restaurantVM.distance, showStroke: true)
             }
         }

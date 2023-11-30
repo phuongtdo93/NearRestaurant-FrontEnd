@@ -20,13 +20,6 @@ struct ContactInfoView: View {
                     .font(.custom("Arial", size: 14))
             }
             Spacer()
-            NavigationLink {
-                MapScreen(location: Location(name: "LonDon", latitude: 51.5, longitude: -0.12, fullAddress: ""), mapRegion: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
-            } label: {
-                BigCircle(content: "location.fill")
-            }
-
-            BigCircle(content: "phone.fill")
         }
     }
 }

@@ -18,11 +18,6 @@ struct RestaurantListScreen: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-              LongButtonWithIconView(text: "SORT BY", icon: "text.alignleft")
-              LongButtonWithIconView(text: "FILTERS", icon: "slider.horizontal.3")
-            }.padding(EdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0))
-            
             ScrollView() {
                 LazyVStack {
                     ForEach(verticalRestaurantListVM.restaurants, id: \.id) { restaurant in

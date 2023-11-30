@@ -19,7 +19,6 @@ struct HomeScreen: View {
  
                     }
                     Spacer()
-                    UserIcon()
                 }.padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                 
                 
@@ -29,11 +28,6 @@ struct HomeScreen: View {
                     
                 Spacer()
             }.padding()
-            .onAppear() {
-                if Crashes.hasCrashedInLastSession {
-                    print ("Sorry an error occurs")
-                }
-            }
             .navigationBarBackButtonHidden(true)
         }
         
