@@ -76,6 +76,8 @@
 		1468586B2AC761F6003747B8 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468586A2AC761F6003747B8 /* MapScreen.swift */; };
 		1468586D2AC76318003747B8 /* RestaurantAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468586C2AC76318003747B8 /* RestaurantAddress.swift */; };
 		146858702AC8DFBA003747B8 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1468586F2AC8DFBA003747B8 /* ContactViewModel.swift */; };
+		1474942A2B28D0D700F111F9 /* PaymentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147494292B28D0D700F111F9 /* PaymentScreen.swift */; };
+		1474942C2B28D1C000F111F9 /* ApplePayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474942B2B28D1C000F111F9 /* ApplePayButton.swift */; };
 		1474F1CC2B0AFB100068D37A /* FetchNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CB2B0AFB100068D37A /* FetchNetworking.swift */; };
 		1474F1CE2B0BCC750068D37A /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */; };
 		1474F1D02B0BF4E00068D37A /* LoginNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474F1CF2B0BF4E00068D37A /* LoginNavigationViewModel.swift */; };
@@ -119,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140D7D892B1AA125007657B6 /* NearRestaurantDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NearRestaurantDebug.entitlements; sourceTree = "<group>"; };
 		142294262A4C5BBC003D32D0 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
 		142294282A4C5CA7003D32D0 /* TrendingSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingSquareView.swift; sourceTree = "<group>"; };
 		1422942A2A4C66B5003D32D0 /* RestaurantItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItemView.swift; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 		1468586A2AC761F6003747B8 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		1468586C2AC76318003747B8 /* RestaurantAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAddress.swift; sourceTree = "<group>"; };
 		1468586F2AC8DFBA003747B8 /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		147494292B28D0D700F111F9 /* PaymentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScreen.swift; sourceTree = "<group>"; };
+		1474942B2B28D1C000F111F9 /* ApplePayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayButton.swift; sourceTree = "<group>"; };
 		1474F1C62B068C6C0068D37A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1474F1CB2B0AFB100068D37A /* FetchNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchNetworking.swift; sourceTree = "<group>"; };
 		1474F1CD2B0BCC750068D37A /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -455,9 +460,19 @@
 			path = LikeIcon;
 			sourceTree = "<group>";
 		};
+		147494282B28D0BF00F111F9 /* PaymentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				147494292B28D0D700F111F9 /* PaymentScreen.swift */,
+				1474942B2B28D1C000F111F9 /* ApplePayButton.swift */,
+			);
+			path = PaymentScreen;
+			sourceTree = "<group>";
+		};
 		14B0A70D2A4C4EF2006BDE0A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				147494282B28D0BF00F111F9 /* PaymentScreen */,
 				143782582AE871DB003325D9 /* SignUpScreen */,
 				143782552AE861A4003325D9 /* LoginScreen */,
 				1437825B2AE872F9003325D9 /* ForgetPassword */,
@@ -691,6 +706,7 @@
 		14BB01202A47554E00928C38 /* NearRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				140D7D892B1AA125007657B6 /* NearRestaurantDebug.entitlements */,
 				1474F1C62B068C6C0068D37A /* Info.plist */,
 				1422945B2A4FBB59003D32D0 /* ViewModels */,
 				1422945A2A4FBB51003D32D0 /* Services */,
@@ -1002,6 +1018,7 @@
 				142294332A4E7462003D32D0 /* CategoryView.swift in Sources */,
 				143782602AE8745F003325D9 /* ResetPasswordView.swift in Sources */,
 				14BB01242A47554E00928C38 /* ContentView.swift in Sources */,
+				1474942C2B28D1C000F111F9 /* ApplePayButton.swift in Sources */,
 				14BB01222A47554E00928C38 /* NearRestaurantApp.swift in Sources */,
 				149E06B82ABBE6A5005E6C6B /* LikeIconDishViewModel.swift in Sources */,
 				1422944A2A4F43E4003D32D0 /* MenuScreen.swift in Sources */,
@@ -1010,6 +1027,7 @@
 				142294392A4EDBA8003D32D0 /* LongButtonWithIconView.swift in Sources */,
 				1422942D2A4D9FF4003D32D0 /* TopRatedScreen.swift in Sources */,
 				1474F1D02B0BF4E00068D37A /* LoginNavigationViewModel.swift in Sources */,
+				1474942A2B28D0D700F111F9 /* PaymentScreen.swift in Sources */,
 				142294682A50D81F003D32D0 /* CategoryListView.swift in Sources */,
 				1437825D2AE87313003325D9 /* ForgetPasswordScreen.swift in Sources */,
 				1422947F2A5431C4003D32D0 /* RestaurantListScreen.swift in Sources */,
@@ -1094,15 +1112,18 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q247WY3MHA;
+				DEVELOPMENT_TEAM = 39PM9B927M;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.NearRestaurantUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.YumYard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = NearRestaurant;
 			};
 			name = Debug;
@@ -1112,15 +1133,18 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q247WY3MHA;
+				DEVELOPMENT_TEAM = 39PM9B927M;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.NearRestaurantUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.YumYardUITest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = NearRestaurant;
 			};
 			name = Release;
@@ -1251,6 +1275,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearRestaurant/NearRestaurantDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NearRestaurant/Preview Content\"";
@@ -1271,9 +1296,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.YumYard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1286,7 +1314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NearRestaurant/Preview Content\"";
-				DEVELOPMENT_TEAM = Q247WY3MHA;
+				DEVELOPMENT_TEAM = 39PM9B927M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearRestaurant/Info.plist;
@@ -1301,11 +1329,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.NearRestaurant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.YumYard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1316,14 +1347,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q247WY3MHA;
+				DEVELOPMENT_TEAM = 39PM9B927M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.NearRestaurantTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.YumYard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearRestaurant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NearRestaurant";
 			};
 			name = Debug;
@@ -1335,14 +1369,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q247WY3MHA;
+				DEVELOPMENT_TEAM = 39PM9B927M;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.NearRestaurantTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salmdo.YumYardUnitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NearRestaurant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NearRestaurant";
 			};
 			name = Release;

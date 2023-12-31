@@ -95,6 +95,21 @@
                   endingLineNumber = "63"
                   offsetFromSymbolStart = "988">
                </Location>
+               <Location
+                  uuid = "23231454-CA5A-43A6-8CC4-13534E25F693 - bea45c47f73dc134"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NearRestaurant.PushServiceNoToken.pushData(apiEndpoint: Swift.String, input: &#x3c4;_0_0, completion: (Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_1&gt;, NearRestaurant.ServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/FetchServiceNoToken.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "988">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,6 +168,36 @@
                   moduleName = "NearRestaurant"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/salmdo/Desktop/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/FetchServiceNoToken.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "1064">
+               </Location>
+               <Location
+                  uuid = "FE6873CF-7E88-4032-9366-A4D2A75524EC - dc4cc665a6988fa5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NearRestaurant.PushServiceNoToken.pushData(apiEndpoint: Swift.String, input: &#x3c4;_0_0, completion: (Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_1&gt;, NearRestaurant.ServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/FetchServiceNoToken.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "1568">
+               </Location>
+               <Location
+                  uuid = "FE6873CF-7E88-4032-9366-A4D2A75524EC - bea45c47f73dc26d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NearRestaurant.PushServiceNoToken.pushData(apiEndpoint: Swift.String, input: &#x3c4;_0_0, completion: (Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_1&gt;, NearRestaurant.ServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Services/FetchServiceNoToken.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "72"
@@ -222,6 +267,21 @@
                   endingLineNumber = "83"
                   offsetFromSymbolStart = "3236">
                </Location>
+               <Location
+                  uuid = "5B76E97C-9C5B-4AE3-BFD7-F6660DCFE8E3 - 78e2838c3d226b1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 (Swift.Result&lt;Swift.Optional&lt;NearRestaurant.LoginResponse&gt;, NearRestaurant.ServiceError&gt;) -&gt; () in closure #1 (Swift.CheckedContinuation&lt;Swift.Bool, Swift.Error&gt;) -&gt; () in NearRestaurant.LoginViewModel.login() async -&gt; Swift.Bool"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Views/Screens/LoginScreen/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "3000">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -286,7 +346,38 @@
                   endingLineNumber = "74"
                   offsetFromSymbolStart = "708">
                </Location>
+               <Location
+                  uuid = "334A3480-CB2F-4726-800C-4CFE47749E73 - 78e2838c3d226a35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor @Sendable () -&gt; () in closure #1 (Swift.Result&lt;Swift.Optional&lt;NearRestaurant.LoginResponse&gt;, NearRestaurant.ServiceError&gt;) -&gt; () in closure #1 (Swift.CheckedContinuation&lt;Swift.Bool, Swift.Error&gt;) -&gt; () in NearRestaurant.LoginViewModel.login() async -&gt; Swift.Bool"
+                  moduleName = "NearRestaurant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salmdo/IOSSalmdo/NearRestaurant/NearRestaurant-FrontEnd/NearRestaurant/Views/Screens/LoginScreen/LoginViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "1140">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8155FEBB-3EEA-41A0-B29E-B0DFB1117107"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NearRestaurant/Views/Screens/PaymentScreen/ApplePayButton.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

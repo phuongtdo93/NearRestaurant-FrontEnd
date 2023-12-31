@@ -27,6 +27,7 @@ struct RestaurantDetailsScreen: View {
                     .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                 ContactInfoView(contact: restaurantVM.restaurant.contactInformation) .padding(10)
                 Spacer()
+                
             }
             .ignoresSafeArea()
     }

@@ -35,7 +35,7 @@ struct RestaurantItemVerticalView: View {
                     .font(.headline)
                     .foregroundColor(.black)
                     .lineSpacing(4)
-                    .lineLimit(2)
+                    .lineLimit(3)
                     .padding(2)
                 Text(restaurantVM.restaurant.address)
                     .font(.caption2)
@@ -44,7 +44,6 @@ struct RestaurantItemVerticalView: View {
                 
             }
             .frame(maxWidth: 150)
-            .fixedSize(horizontal: false, vertical: true)
         }
         .accessibilityIdentifier("idLikeIconRestaurantItemVerticalView")
     }
